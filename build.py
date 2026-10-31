@@ -1,6 +1,6 @@
 import os, re, shutil, html as H
 
-ROOT = '/home/claude/cine'
+ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = ROOT + '/site'
 tpl = open(ROOT + '/src/template.html', encoding='utf-8').read()
 
@@ -215,12 +215,8 @@ for P in SV.PAGES:
     SVC_URLS += [(SV_alt[0], SV_alt), (SV_alt[1], SV_alt)]
 for f in ['site.css', 'site.js', 'hero.js']:
     shutil.copy(ROOT + '/src/assets/' + f, OUT + '/assets/' + f)
-nm = ROOT + '/node_modules'
-shutil.copy(nm + '/gsap/dist/gsap.min.js', OUT + '/assets/gsap.min.js')
-shutil.copy(nm + '/gsap/dist/ScrollTrigger.min.js', OUT + '/assets/ScrollTrigger.min.js')
-t3 = open(nm + '/three/build/three.min.js', encoding='utf-8').read()
-t3 = ('void 0,' + t3[t3.index('\n') + 1:]) if t3.startswith('console.warn') else t3
-open(OUT + '/assets/three.min.js', 'w', encoding='utf-8').write(t3)
+for f in ['gsap.min.js', 'ScrollTrigger.min.js', 'three.min.js']:  # vendored libs (three.min.js already patched)
+    shutil.copy(ROOT + '/src/vendor/' + f, OUT + '/assets/' + f)
 for f in glob.glob(ROOT + '/src/static/*'): shutil.copy(f, OUT + '/' + os.path.basename(f))
 today = datetime.date.today().isoformat()
 open(OUT + '/robots.txt', 'w').write('User-agent: *\nAllow: /\nDisallow: /tg/\n\nSitemap: https://guropsp.com/sitemap.xml\n')
@@ -264,5 +260,5 @@ ErrorDocument 404 /404.html
 ''')
 en_txt = open(OUT + '/index.html', encoding='utf-8').read() + ''.join(open(OUT + '/services/' + P['slug'] + '/index.html', encoding='utf-8').read() for P in SV.PAGES)
 print('Cyrillic in EN:', sorted(set(re.findall(r'[А-Яа-яЁё]+', en_txt))))
-open(OUT + '/VERSION', 'w').write(VER + '-' + datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S') + '\n')
+open(OUT + '/VERSION', 'w').write(VER + '-' + datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%d%H%M%S') + '\n')
 print('built')
