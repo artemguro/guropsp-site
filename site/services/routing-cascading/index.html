@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" data-tg-msg="Hi! I’d like to discuss our payment setup (via GuroPSP.com)" data-tg-ref=". Referred by: " data-tg-user="GuroArtem" data-tg-bot="GuroPSPbot" data-tg-src="routing">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Smart Payment Routing &amp; Cascading for iGaming | GURO PSP</title>
+<meta name="description" content="We set up smart routing and cascading for deposits: rules by geo, BIN and issuing bank, cascading by decline code and after 3DS, sticky routing. Specs for in-house gateways and setup.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta property="og:title" content="Smart payment routing and cascading — GURO PSP">
+<meta property="og:description" content="We set up smart routing and cascading for deposits: rules by geo, BIN and issuing bank, cascading by decline code and after 3DS, sticky routing. Specs for in-house gateways and setup.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GURO PSP">
+<meta property="og:url" content="https://guropsp.com/services/routing-cascading/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://guropsp.com/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Smart payment routing and cascading — GURO PSP">
+<meta name="twitter:description" content="We set up smart routing and cascading for deposits: rules by geo, BIN and issuing bank, cascading by decline code and after 3DS, sticky routing. Specs for in-house gateways and setup.">
+<meta name="twitter:image" content="https://guropsp.com/og-en.jpg">
+<meta name="theme-color" content="#070809">
+<link rel="canonical" href="https://guropsp.com/services/routing-cascading/">
+<link rel="alternate" hreflang="en" href="https://guropsp.com/services/routing-cascading/">
+<link rel="alternate" hreflang="ru" href="https://guropsp.com/ru/services/routing-cascading/">
+<link rel="alternate" hreflang="x-default" href="https://guropsp.com/services/routing-cascading/">
+<link rel="alternate" type="application/rss+xml" title="GURO PSP blog (RSS)" href="https://guropsp.com/blog/feed.xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=1893210a">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://guropsp.com/#org", "name": "GURO PSP", "alternateName": "GuroPSP", "url": "https://guropsp.com/", "logo": {"@type": "ImageObject", "url": "https://guropsp.com/icon-512.png", "width": 512, "height": 512}, "sameAs": ["https://t.me/GuroPSPbot"]}, {"@type": "WebPage", "@id": "https://guropsp.com/services/routing-cascading/#webpage", "url": "https://guropsp.com/services/routing-cascading/", "name": "Smart Payment Routing & Cascading for iGaming | GURO PSP", "description": "We set up smart routing and cascading for deposits: rules by geo, BIN and issuing bank, cascading by decline code and after 3DS, sticky routing. Specs for in-house gateways and setup.", "inLanguage": "en", "isPartOf": {"@id": "https://guropsp.com/#website"}, "about": {"@id": "https://guropsp.com/services/routing-cascading/#service"}, "breadcrumb": {"@id": "https://guropsp.com/services/routing-cascading/#breadcrumb"}}, {"@type": "BreadcrumbList", "@id": "https://guropsp.com/services/routing-cascading/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "GURO PSP", "item": "https://guropsp.com/"}, {"@type": "ListItem", "position": 2, "name": "Routing and cascading", "item": "https://guropsp.com/services/routing-cascading/"}]}, {"@type": "Service", "@id": "https://guropsp.com/services/routing-cascading/#service", "name": "Smart payment routing and cascading", "serviceType": "Smart payment routing and cascading", "description": "We set up smart routing and cascading for deposits: rules by geo, BIN and issuing bank, cascading by decline code and after 3DS, sticky routing. Specs for in-house gateways and setup.", "provider": {"@id": "https://guropsp.com/#org"}, "url": "https://guropsp.com/services/routing-cascading/", "areaServed": [{"@type": "Place", "name": "European Union"}, {"@type": "Place", "name": "United Kingdom"}, {"@type": "Place", "name": "Canada"}, {"@type": "Place", "name": "Australia"}, {"@type": "Place", "name": "New Zealand"}], "offers": [{"@type": "Offer", "name": "Initial audit, Tier 1", "priceCurrency": "EUR", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 600, "priceCurrency": "EUR"}}, {"@type": "Offer", "name": "Typical engagement", "priceCurrency": "EUR", "priceSpecification": {"@type": "PriceSpecification", "minPrice": 3000, "maxPrice": 4000, "priceCurrency": "EUR"}}]}, {"@type": "FAQPage", "@id": "https://guropsp.com/services/routing-cascading/#faq", "mainEntity": [{"@type": "Question", "name": "What is the difference between routing and cascading?", "acceptedAnswer": {"@type": "Answer", "text": "Routing decides which provider a deposit goes to first. Cascading decides what happens after a decline: retry at another provider or not. They work together: good routing reduces declines, cascading recovers part of the rest."}}, {"@type": "Question", "name": "How many providers do you need for cascading?", "acceptedAnswer": {"@type": "Answer", "text": "At least two for cards in each key geo. Ideally they sit on different acquirers: two PSPs on the same acquiring bank often decline the same way."}}, {"@type": "Question", "name": "Can cascading hurt relationships with banks and card schemes?", "acceptedAnswer": {"@type": "Answer", "text": "Not if you follow Visa and Mastercard retry rules and never retry hard declines. Uncontrolled cascading, on the other hand, leads to fines and lowers banks’ trust in the merchant."}}, {"@type": "Question", "name": "Do we need a payment orchestrator?", "acceptedAnswer": {"@type": "Answer", "text": "Not necessarily. Many gateways already have routing that just needs configuring. We don’t sell orchestrators: we compare options for your task, and the choice stays with you."}}, {"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the task: reviewing current rules is part of an audit from €600; a full cycle with specs, configuration and support typically costs €3,000–4,000."}}]}]}</script>
+<script>
+document.documentElement.classList.add('js');
+(function(){try{var r=new URLSearchParams(location.search).get('ref');if(r){r=r.replace(/[^A-Za-z0-9_-]/g,'').slice(0,40);var o=localStorage.getItem('guro_ref'),t=+localStorage.getItem('guro_ref_t')||0;if(r&&(!o||Date.now()-t>7776000000)){localStorage.setItem('guro_ref',r);localStorage.setItem('guro_ref_t',String(Date.now()));}}}catch(e){}
+try{var L=localStorage.getItem('guro_lang');var ls=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'']).join(',').toLowerCase();if(L==='ru'||(!L&&/(^|,)(ru|uk|be|kk)\b/.test(ls))){location.replace('/ru/services/routing-cascading/'+location.search+location.hash);}}catch(e){}})();
+</script>
+</head>
+<body class="page-svc">
+
+<div class="curtain" id="curtain" aria-hidden="true">
+  <div class="curtain-in"><span class="curtain-mark"><i></i></span><span class="curtain-word">GURO <b>PSP</b></span><span class="curtain-bar"><i></i></span></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="ambient" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+<div class="cursor" id="cursor" aria-hidden="true"><div class="cursor-ring"><span class="cursor-label"></span></div><div class="cursor-dot"></div></div>
+
+<header class="nav" id="nav">
+  <div class="nav-pill">
+    <a href="/" class="logo" aria-label="GURO PSP — home"><span class="logo-mark"><i></i></span>GURO<b>&nbsp;PSP</b></a>
+    <nav class="links" id="links" aria-label="Site sections"><a href="/#services">Services</a><a href="/services/payments-audit/">Payments audit</a><a href="/services/routing-cascading/" aria-current="page">Routing and cascading</a><a href="/blog/">Blog</a></nav>
+    <div class="nav-r">
+      <a href="https://guropsp.com/ru/services/routing-cascading/" class="lang" data-set="ru" hreflang="ru" lang="ru" aria-label="Русская версия" data-cursor="RU">RU</a>
+      <a href="https://t.me/GuroArtem" class="btn btn-sm magnetic" data-tg data-cursor="Telegram" target="_blank" rel="noopener"><span>Message us on Telegram</span></a>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="links" data-open="Open menu" data-close="Close menu"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="hero hero-svc" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-in">
+      <nav class="crumbs" aria-label="Breadcrumb" data-intro><a href="/">GURO PSP</a><span aria-hidden="true">/</span><span aria-current="page">Routing and cascading</span></nav>
+      <p class="kicker" data-intro><b></b>Service · routing and cascading</p>
+      <h1 class="display hero-title" id="heroTitle">
+        <span class="ln" data-chars>Smart routing</span>
+        <span class="ln" data-chars>and cascading</span>
+        <span class="ln ln-metal"><span class="metal">without needless declines</span></span>
+      </h1>
+      <p class="lead" data-intro>Every deposit goes to the provider most likely to approve it, and a declined one is retried only where it makes sense and stays within card scheme rules.</p>
+      <div class="ctas" data-intro>
+        <a href="https://t.me/GuroArtem" class="btn btn-lg magnetic" data-tg data-cursor="Telegram" target="_blank" rel="noopener"><span>Discuss your project</span></a>
+        <a href="#price" class="btn btn-lg btn-ghost magnetic" data-cursor="View"><span>Pricing</span></a>
+      </div>
+    </div>
+    <aside class="live glass svc-card" data-intro>
+      <div class="live-head"><span class="live-dot"></span>How a deposit flows</div>
+      <svg class="flow-svg" viewBox="0 0 420 250" role="img" aria-label="Deposit → Router → PSP A (05 · declined) → cascade → PSP B (approved)">
+  <path class="fw" d="M92 125 H160"/>
+  <path class="fw" d="M240 112 C280 112 280 60 314 60"/>
+  <path class="fw" d="M240 138 C280 138 280 190 314 190"/>
+  <path class="fw fw-c" d="M360 82 V168"/>
+  <path class="fp fp-1" d="M92 125 H160"/>
+  <path class="fp fp-2" d="M240 112 C280 112 280 60 314 60"/>
+  <path class="fp fp-3 fp-c" d="M360 82 V168"/>
+  <rect class="fn" x="12" y="103" width="80" height="44" rx="12"/><text x="52" y="130">Deposit</text>
+  <rect class="fn fn-r" x="160" y="99" width="80" height="52" rx="14"/><text x="200" y="130">Router</text>
+  <rect class="fn fn-bad" x="314" y="38" width="92" height="44" rx="12"/><text x="360" y="65">PSP A</text>
+  <rect class="fn fn-ok" x="314" y="168" width="92" height="44" rx="12"/><text x="360" y="195">PSP B</text>
+  <text class="ft ft-bad" x="360" y="26">05 · declined</text>
+  <text class="ft ft-c" x="372" y="129" text-anchor="start">cascade</text>
+  <text class="ft ft-ok" x="360" y="232">✓ approved</text>
+</svg>
+      <p class="live-note">Illustration: a soft decline at one provider cascades and gets approved at another.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="display" data-words>How it works</h2><p class="sub" data-reveal>Three mechanisms that raise approval rates together.</p></div>
+    <div class="tiles tiles-3"><div class="tile" data-reveal><span class="tnum">01</span><h3>Routing</h3><p>Picks the first provider for a deposit by geo, method, BIN, issuing bank, amount and player history.</p></div><div class="tile" data-reveal><span class="tnum">02</span><h3>Cascading</h3><p>Retries a declined deposit at another provider, but only for declines that are worth retrying.</p></div><div class="tile" data-reveal><span class="tnum">03</span><h3>Health control</h3><p>If a provider’s approval rate dips or errors spike, traffic is redistributed automatically.</p></div></div>
+  </div>
+</section>
+
+<section class="sec sec-line">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="display" data-words>Routing rules</h2><p class="sub" data-reveal>What the scheme is built from for your geos and providers.</p></div>
+    <div class="areas"><div class="area" data-reveal><span class="tnum">01</span><h3>Geo and currency</h3><p>Each market gets its own provider set: one PSP performs better in Canada, another in Germany.</p></div><div class="area" data-reveal><span class="tnum">02</span><h3>BIN and issuing bank</h3><p>The same bank approves differently at different acquirers. We route by actual approval rates.</p></div><div class="area" data-reveal><span class="tnum">03</span><h3>Deposit amount</h3><p>Large deposits go to the provider with the best approval on high amounts, small ones to the cheaper one.</p></div><div class="area" data-reveal><span class="tnum">04</span><h3>Sticky routing</h3><p>A returning player’s deposit goes where the previous one was approved: the bank already “knows” the merchant.</p></div><div class="area" data-reveal><span class="tnum">05</span><h3>Provider health</h3><p>A drop in approval rate or a rise in technical errors lowers the provider’s weight until it recovers.</p></div><div class="area" data-reveal><span class="tnum">06</span><h3>Price</h3><p>With equal approval rates, traffic goes to the provider with the lower fee.</p></div></div>
+  </div>
+</section>
+
+<section class="sec sec-line" id="codes">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="display" data-words>Which declines to cascade</h2><p class="sub" data-reveal>Not every decline should be retried: some will never be approved by the bank, and excess attempts lead to fines. A typical matrix:</p></div>
+    <div class="codes-wrap" data-reveal>
+      <table class="codes"><thead><tr><th>Code</th><th>Meaning</th><th>Action</th></tr></thead><tbody><tr class="c-yes"><td><code>05</code></td><td>Do not honor — generic issuer decline</td><td><span class="cm">✓</span>Cascade to another acquirer</td></tr><tr class="c-yes"><td><code>91</code></td><td>Issuer unavailable</td><td><span class="cm">✓</span>Cascade to another provider</td></tr><tr class="c-yes"><td><code>96</code></td><td>System malfunction</td><td><span class="cm">✓</span>Cascade to another provider</td></tr><tr class="c-yes"><td><code>1A / 65</code></td><td>Authentication required (SCA, EU)</td><td><span class="cm">✓</span>Retry with 3DS</td></tr><tr class="c-alt"><td><code>51</code></td><td>Insufficient funds</td><td><span class="cm">↺</span>Don’t cascade: offer a lower amount or another method</td></tr><tr class="c-alt"><td><code>61</code></td><td>Exceeds card limit</td><td><span class="cm">↺</span>Don’t cascade: lower amount or another method</td></tr><tr class="c-alt"><td><code>57</code></td><td>Transaction not permitted to cardholder</td><td><span class="cm">↺</span>Don’t cascade: offer another method</td></tr><tr class="c-no"><td><code>54</code></td><td>Expired card</td><td><span class="cm">✕</span>Don’t cascade: ask for another card</td></tr><tr class="c-no"><td><code>14</code></td><td>Invalid card number</td><td><span class="cm">✕</span>Don’t cascade</td></tr><tr class="c-no"><td><code>41 / 43</code></td><td>Lost or stolen card</td><td><span class="cm">✕</span>Never retry</td></tr><tr class="c-no"><td><code>59</code></td><td>Suspected fraud</td><td><span class="cm">✕</span>Never retry</td></tr></tbody></table>
+    </div>
+    <p class="codes-note" data-reveal>Code meanings differ between Visa, Mastercard and individual acquirers. Visa prohibits retrying declines the issuer will never approve and limits the number of retries per card; Mastercard returns a Merchant Advice Code that states whether a retry is allowed. We build the final matrix from your own statistics and providers.</p>
+    <div class="tds glass" data-reveal><h3>Cascading after 3DS</h3><p>If a player has already passed 3DS and the provider declines the payment, retrying at another provider usually requires a new authentication. A second 3DS window is a common reason players abandon a deposit, so we decide when such a cascade is worth it based on amount, decline code and player history.</p></div>
+  </div>
+</section>
+<section class="sec sec-line">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="display" data-words>What we do</h2><p class="sub" data-reveal>We work with both in-house gateways and off-the-shelf solutions.</p></div>
+    <div class="tiles tiles-4"><div class="tile tile-out" data-reveal><span class="tnum">01</span><h3>Specs for an in-house gateway</h3><p>We describe the routing and cascade logic, sticky routing, cascading after 3DS and routing by decline code, and help you sign off the build.</p></div><div class="tile tile-out" data-reveal><span class="tnum">02</span><h3>Configuring a ready gateway</h3><p>If you use a ready gateway or an orchestrator, we configure the rules in its interface for your providers.</p></div><div class="tile tile-out" data-reveal><span class="tnum">03</span><h3>Decline code matrix</h3><p>Built from your statistics: which declines to cascade at which providers, and which not to.</p></div><div class="tile tile-out" data-reveal><span class="tnum">04</span><h3>Measuring the result</h3><p>A cascade performance dashboard and smart alerting in Telegram or Slack: you see how many deposits the cascade recovered.</p></div></div>
+  </div>
+</section>
+
+<section class="proc-sec sec-line" id="process">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="display" data-words>How we work</h2><p class="sub" data-reveal>Five steps from the first call to measurable results.</p></div>
+    <div class="steps-wrap" id="steps"><div class="steps-rail" aria-hidden="true"><i></i></div><ol class="steps"><li><span class="n">1</span><h3>Intro call</h3><p>We get to know your situation and goals</p></li><li><span class="n">2</span><h3>NDA and access</h3><p>We sign an NDA if needed</p></li><li><span class="n">3</span><h3>Audit</h3><p>We find and analyse the issues</p></li><li><span class="n">4</span><h3>Recommendations</h3><p>A prioritised plan of changes</p></li><li><span class="n">5</span><h3>Implementation</h3><p>We stay with you until the results are in</p></li></ol></div>
+  </div>
+</section>
+
+<section class="price-sec" id="price">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="display" data-words>Pricing that fits your task</h2><p class="sub" data-reveal>Depends on how deep we go into the product (what access you can give us) and which regions we review.</p></div>
+    <div class="price">
+      <div class="pbox tilt" data-reveal><span class="pbox-lbl">Initial audit, Tier 1</span><strong>from €600</strong><p>Website, gateway and analytics audit.</p></div>
+      <div class="pbox pbox-hl tilt" data-reveal><span class="pbox-lbl">Typical engagement</span><strong class="metal">€3,000–4,000</strong><p>Full optimisation cycle with implementation support.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="display" data-words>Frequently asked questions</h2></div>
+    <div class="faq-list"><details class="qa" data-reveal><summary><h3>What is the difference between routing and cascading?</h3><i aria-hidden="true"></i></summary><div class="qa-a"><p>Routing decides which provider a deposit goes to first. Cascading decides what happens after a decline: retry at another provider or not. They work together: good routing reduces declines, cascading recovers part of the rest.</p></div></details><details class="qa" data-reveal><summary><h3>How many providers do you need for cascading?</h3><i aria-hidden="true"></i></summary><div class="qa-a"><p>At least two for cards in each key geo. Ideally they sit on different acquirers: two PSPs on the same acquiring bank often decline the same way.</p></div></details><details class="qa" data-reveal><summary><h3>Can cascading hurt relationships with banks and card schemes?</h3><i aria-hidden="true"></i></summary><div class="qa-a"><p>Not if you follow Visa and Mastercard retry rules and never retry hard declines. Uncontrolled cascading, on the other hand, leads to fines and lowers banks’ trust in the merchant.</p></div></details><details class="qa" data-reveal><summary><h3>Do we need a payment orchestrator?</h3><i aria-hidden="true"></i></summary><div class="qa-a"><p>Not necessarily. Many gateways already have routing that just needs configuring. We don’t sell orchestrators: we compare options for your task, and the choice stays with you.</p></div></details><details class="qa" data-reveal><summary><h3>How much does it cost?</h3><i aria-hidden="true"></i></summary><div class="qa-a"><p>It depends on the task: reviewing current rules is part of an audit from €600; a full cycle with specs, configuration and support typically costs €3,000–4,000.</p></div></details></div>
+  </div>
+</section>
+
+<section class="sec sec-line">
+  <div class="wrap">
+    <div class="sec-head"><h2 class="display" data-words>Other services</h2></div>
+    <div class="rels"><a class="rel tilt" href="/services/payments-audit/" data-reveal data-cursor="Learn more"><span class="rel-k">Services</span><strong>Payments audit</strong><p>Payments audit for iGaming operators: cashier, methods by geo, gateway, routing, cascading and providers. We find where deposits are lost. Tier 1, from €600.</p><span class="rel-arrow" aria-hidden="true">→</span></a><a class="rel post tilt" href="/blog/card-decline-codes-cascading/" data-reveal data-cursor="Read"><span class="rel-k">Cascading · <time datetime="2026-10-31">31 October 2026</time> · 7 min</span><strong>Card Decline Codes: Which to Cascade and Which Not To</strong><p>A guide to card decline codes: soft and hard declines, Visa and Mastercard retry rules, cascading after 3DS and how to build your own cascade matrix for iGaming.</p><span class="rel-arrow" aria-hidden="true">→</span></a><a class="rel rel-home tilt" href="/#services" data-reveal data-cursor="Learn more"><span class="rel-k">GURO PSP</span><strong>All services</strong><p>We take on a single task or run your entire payments function end to end.</p><span class="rel-arrow" aria-hidden="true">→</span></a></div>
+  </div>
+</section>
+
+<section class="cta-sec" id="contact">
+  <div class="cta-glow" aria-hidden="true"></div>
+  <div class="wrap cta">
+    <h2 class="display cta-title" data-words>Tell us about your payment setup</h2>
+    <p class="sub" data-reveal>Gateway, cashier, geos and main issues. We’ll tell you where to start and estimate the scope.</p>
+    <div data-reveal><a href="https://t.me/GuroArtem" class="btn btn-xl magnetic" data-tg data-cursor="Telegram" target="_blank" rel="noopener"><span>Message us on Telegram</span></a></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span>© <span id="yr">2026</span> GURO PSP. Payments audit, routing, analytics</span>
+    <nav class="foot-links" aria-label="Services"><a href="/services/payments-audit/">Payments audit</a><a href="/services/routing-cascading/">Routing and cascading</a><a href="/blog/">Blog</a><a href="/">GuroPSP.com</a></nav>
+  </div>
+</footer>
+
+<script src="/assets/gsap.min.js?v=1893210a" defer></script>
+<script src="/assets/ScrollTrigger.min.js?v=1893210a" defer></script>
+<script src="/assets/site.js?v=1893210a" defer></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>iGaming payments blog — GURO PSP</title>
+  <link>https://guropsp.com/blog/</link>
+  <atom:link href="https://guropsp.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>GURO PSP articles on iGaming payments: how to improve deposit approval rates, set up routing and cascading, handle decline codes and manage providers.</description>
+  <language>en</language>
+  <lastBuildDate>Sat, 31 Oct 2026 08:00:00 +0000</lastBuildDate>
+  <item>
+    <title>How to Improve Deposit Approval Rates in iGaming: 7 Levers</title>
+    <link>https://guropsp.com/blog/improve-deposit-approval-rate/</link>
+    <guid isPermaLink="true">https://guropsp.com/blog/improve-deposit-approval-rate/</guid>
+    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
+    <category>Approval rate</category>
+    <description>A practical guide: how to measure approval rate and what to change in the cashier, routing, cascading and 3DS, and how to work with providers and declines to get more deposits through.</description>
+  </item>
+  <item>
+    <title>Card Decline Codes: Which to Cascade and Which Not To</title>
+    <link>https://guropsp.com/blog/card-decline-codes-cascading/</link>
+    <guid isPermaLink="true">https://guropsp.com/blog/card-decline-codes-cascading/</guid>
+    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
+    <category>Cascading</category>
+    <description>A guide to card decline codes: soft and hard declines, Visa and Mastercard retry rules, cascading after 3DS and how to build your own cascade matrix for iGaming.</description>
+  </item>
+  <item>
+    <title>Casino Cashier Audit Checklist: 30 Points</title>
+    <link>https://guropsp.com/blog/casino-cashier-audit-checklist/</link>
+    <guid isPermaLink="true">https://guropsp.com/blog/casino-cashier-audit-checklist/</guid>
+    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
+    <category>Audit</category>
+    <description>30 points to self-check an iGaming cashier: player path, methods by geo, gateway, routing and cascading, providers, analytics and processes.</description>
+  </item>
+  <item>
+    <title>How to Choose a PSP for iGaming: 12 Questions to Ask</title>
+    <link>https://guropsp.com/blog/how-to-choose-psp-igaming/</link>
+    <guid isPermaLink="true">https://guropsp.com/blog/how-to-choose-psp-igaming/</guid>
+    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
+    <category>Providers</category>
+    <description>Questions to ask a payment provider before onboarding: geos and methods, approval rates, acquirers, fees and reserves, settlements, technical integration and support.</description>
+  </item>
+</channel>
+</rss>
