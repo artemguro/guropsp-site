@@ -496,3 +496,4 @@ html:not(.js) .scrub .sw{opacity:1}
 .prose h3{font-family:var(--display);font-weight:600;font-size:clamp(18px,1.5vw,22px);letter-spacing:-.02em;color:var(--text);margin-top:1.6em}
 .art-table .codes td{white-space:normal}
 .prose{overflow-wrap:anywhere}
+#codes .codes-note{font-size:clamp(15px,1.1vw,17px);color:var(--muted);margin-top:0;max-width:80ch}

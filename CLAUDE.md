@@ -36,7 +36,7 @@ run `python3 build.py`, commit both `src/` and `site/`, push to `main`. That's t
 - We don't sell PSPs/orchestrators; the choice stays with the client. Keep tone factual, not salesy.
 - RU and EN versions must say the same thing; RU is natural Russian, not a word-for-word translation.
 - Quality over volume: 1–2 articles per week max.
-- Articles written by the owner (GEO analysis, PSP selection, smart routing) are published as he wrote them — don't trim those.
+- The GEO analysis article is the owner's text — don't change it without asking. PSP selection and smart routing were shortened on 1 Nov 2026 with his approval.
 
 ## Content plan (next topics, in order — skip ones already in `ARTICLES`)
 Already covered: approval rate, decline codes, cashier self-check, GEO analysis, PSP selection, smart routing (BIN, sticky, cascades).

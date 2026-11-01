@@ -86,13 +86,12 @@ def render(p, lang, D, ver):
         mark = {'yes': '✓', 'alt': '↺', 'no': '✕'}
         rows = ''.join(f'<tr class="c-{k}"><td><code>{e(c)}</code></td><td>{e(m)}</td><td><span class="cm">{mark[k]}</span>{e(a)}</td></tr>' for c, m, k, a in C['codes'])
         cols = C['codes_cols']
+        table_html = (f'''    <div class="codes-wrap" data-reveal>\n      <table class="codes"><thead><tr><th>{e(cols[0])}</th><th>{e(cols[1])}</th><th>{e(cols[2])}</th></tr></thead><tbody>{rows}</tbody></table>\n    </div>''') if C['codes'] else ''
         codes = f'''
 <section class="sec sec-line" id="codes">
   <div class="wrap">
     <div class="sec-head"><h2 class="display" data-words>{e(C['codes_h'])}</h2><p class="sub" data-reveal>{e(C['codes_sub'])}</p></div>
-    <div class="codes-wrap" data-reveal>
-      <table class="codes"><thead><tr><th>{e(cols[0])}</th><th>{e(cols[1])}</th><th>{e(cols[2])}</th></tr></thead><tbody>{rows}</tbody></table>
-    </div>
+{table_html}
     <p class="codes-note" data-reveal>{e(C['codes_note'])}</p>
     <div class="tds glass" data-reveal><h3>{e(C['tds_h'])}</h3><p>{e(C['tds_p'])}</p></div>
   </div>
