@@ -6,38 +6,54 @@
   <atom:link href="https://guropsp.com/ru/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи GURO PSP о платежах в iGaming: как повысить проходимость депозитов, настроить роутинг и каскадинг, работать с кодами отказа и провайдерами.</description>
   <language>ru</language>
-  <lastBuildDate>Sat, 31 Oct 2026 08:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 01 Nov 2026 08:00:00 +0000</lastBuildDate>
   <item>
-    <title>Как повысить проходимость депозитов в iGaming: 7 рычагов</title>
-    <link>https://guropsp.com/ru/blog/improve-deposit-approval-rate/</link>
-    <guid isPermaLink="true">https://guropsp.com/ru/blog/improve-deposit-approval-rate/</guid>
+    <title>Анализ ГЕО с точки зрения платёжных решений</title>
+    <link>https://guropsp.com/ru/blog/igaming-geo-payment-analysis/</link>
+    <guid isPermaLink="true">https://guropsp.com/ru/blog/igaming-geo-payment-analysis/</guid>
     <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
-    <category>Проходимость</category>
-    <description>Практический разбор: как считать approval rate, что менять в кассе, роутинге, каскаде и 3DS, как работать с провайдерами и отказами, чтобы проходило больше депозитов.</description>
+    <category>ГЕО</category>
+    <description>Как анализировать страну перед запуском платежей казино: регулирование, методы по регионам, бенчмарк конкурентов, снимок кассира и поиск провайдеров по редиректам.</description>
   </item>
   <item>
-    <title>Коды отказа по картам: что каскадить, а что нет</title>
-    <link>https://guropsp.com/ru/blog/card-decline-codes-cascading/</link>
-    <guid isPermaLink="true">https://guropsp.com/ru/blog/card-decline-codes-cascading/</guid>
-    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
-    <category>Каскадинг</category>
-    <description>Разбираем коды отказа банков: мягкие и жёсткие отказы, правила повторов Visa и Mastercard, каскад после 3DS и как собрать собственную матрицу каскада для iGaming.</description>
-  </item>
-  <item>
-    <title>Чек-лист аудита кассы казино: 30 пунктов</title>
-    <link>https://guropsp.com/ru/blog/casino-cashier-audit-checklist/</link>
-    <guid isPermaLink="true">https://guropsp.com/ru/blog/casino-cashier-audit-checklist/</guid>
-    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
-    <category>Аудит</category>
-    <description>30 пунктов для самостоятельной проверки кассы iGaming-проекта: путь игрока, методы по гео, гейтвей, роутинг и каскад, провайдеры, аналитика и процессы.</description>
-  </item>
-  <item>
-    <title>Как выбрать PSP для iGaming: 12 вопросов провайдеру</title>
+    <title>Как выбрать PSP для iGaming: порядок и вопросы до подписания</title>
     <link>https://guropsp.com/ru/blog/how-to-choose-psp-igaming/</link>
     <guid isPermaLink="true">https://guropsp.com/ru/blog/how-to-choose-psp-igaming/</guid>
     <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
     <category>Провайдеры</category>
-    <description>Какие вопросы задать платёжному провайдеру до подключения: гео и методы, проходимость, эквайеры, комиссии и резервы, выплаты, техническая интеграция и поддержка.</description>
+    <description>Порядок выбора платёжного провайдера для казино: тип PSP, проверка репутации, из чего складывается цена, что проверить в договоре и Annex, технические вопросы и запуск.</description>
+  </item>
+  <item>
+    <title>Что такое смарт-роутинг</title>
+    <link>https://guropsp.com/ru/blog/smart-routing-igaming/</link>
+    <guid isPermaLink="true">https://guropsp.com/ru/blog/smart-routing-igaming/</guid>
+    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
+    <category>Роутинг</category>
+    <description>Смарт-роутинг депозитов в iGaming: базовые правила роутинга, каскадинг, BIN-роутинг и sticky-привязка — из каких частей он состоит и зачем каждая нужна.</description>
+  </item>
+  <item>
+    <title>Проходимость депозитов в iGaming: где на самом деле теряются деньги</title>
+    <link>https://guropsp.com/ru/blog/improve-deposit-approval-rate/</link>
+    <guid isPermaLink="true">https://guropsp.com/ru/blog/improve-deposit-approval-rate/</guid>
+    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
+    <category>Проходимость</category>
+    <description>Почему проходимость депозитов в iGaming почти всегда ниже, чем могла бы быть, где теряются деньги — от кассы до банка-эмитента — и почему её сложно поднять без системного подхода.</description>
+  </item>
+  <item>
+    <title>Коды отказа по картам: почему нельзя повторять всё подряд</title>
+    <link>https://guropsp.com/ru/blog/card-decline-codes-cascading/</link>
+    <guid isPermaLink="true">https://guropsp.com/ru/blog/card-decline-codes-cascading/</guid>
+    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
+    <category>Каскадинг</category>
+    <description>Почему бесконтрольный каскад отказов вредит iGaming-оператору: мягкие и жёсткие отказы, правила повторов Visa и Mastercard и почему матрица каскада у каждого проекта своя.</description>
+  </item>
+  <item>
+    <title>Аудит кассы казино: 10 вопросов, на которые стоит ответить честно</title>
+    <link>https://guropsp.com/ru/blog/casino-cashier-audit-checklist/</link>
+    <guid isPermaLink="true">https://guropsp.com/ru/blog/casino-cashier-audit-checklist/</guid>
+    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
+    <category>Аудит</category>
+    <description>Короткая самопроверка кассы iGaming-проекта: 10 вопросов о пути игрока, методах, провайдерах, каскаде и аналитике, которые показывают, теряет ли касса депозиты.</description>
   </item>
 </channel>
 </rss>

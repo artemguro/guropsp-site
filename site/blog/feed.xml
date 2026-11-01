@@ -6,38 +6,54 @@
   <atom:link href="https://guropsp.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <description>GURO PSP articles on iGaming payments: how to improve deposit approval rates, set up routing and cascading, handle decline codes and manage providers.</description>
   <language>en</language>
-  <lastBuildDate>Sat, 31 Oct 2026 08:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 01 Nov 2026 08:00:00 +0000</lastBuildDate>
   <item>
-    <title>How to Improve Deposit Approval Rates in iGaming: 7 Levers</title>
-    <link>https://guropsp.com/blog/improve-deposit-approval-rate/</link>
-    <guid isPermaLink="true">https://guropsp.com/blog/improve-deposit-approval-rate/</guid>
+    <title>GEO Analysis for iGaming Payments</title>
+    <link>https://guropsp.com/blog/igaming-geo-payment-analysis/</link>
+    <guid isPermaLink="true">https://guropsp.com/blog/igaming-geo-payment-analysis/</guid>
     <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
-    <category>Approval rate</category>
-    <description>A practical guide: how to measure approval rate and what to change in the cashier, routing, cascading and 3DS, and how to work with providers and declines to get more deposits through.</description>
+    <category>GEO</category>
+    <description>How to analyse a country before launching casino payments: regulation, methods by region, competitor benchmarking, cashier snapshots and finding providers via redirects.</description>
   </item>
   <item>
-    <title>Card Decline Codes: Which to Cascade and Which Not To</title>
-    <link>https://guropsp.com/blog/card-decline-codes-cascading/</link>
-    <guid isPermaLink="true">https://guropsp.com/blog/card-decline-codes-cascading/</guid>
-    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
-    <category>Cascading</category>
-    <description>A guide to card decline codes: soft and hard declines, Visa and Mastercard retry rules, cascading after 3DS and how to build your own cascade matrix for iGaming.</description>
-  </item>
-  <item>
-    <title>Casino Cashier Audit Checklist: 30 Points</title>
-    <link>https://guropsp.com/blog/casino-cashier-audit-checklist/</link>
-    <guid isPermaLink="true">https://guropsp.com/blog/casino-cashier-audit-checklist/</guid>
-    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
-    <category>Audit</category>
-    <description>30 points to self-check an iGaming cashier: player path, methods by geo, gateway, routing and cascading, providers, analytics and processes.</description>
-  </item>
-  <item>
-    <title>How to Choose a PSP for iGaming: 12 Questions to Ask</title>
+    <title>How to Choose a PSP for iGaming: Order and Questions Before Signing</title>
     <link>https://guropsp.com/blog/how-to-choose-psp-igaming/</link>
     <guid isPermaLink="true">https://guropsp.com/blog/how-to-choose-psp-igaming/</guid>
     <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
     <category>Providers</category>
-    <description>Questions to ask a payment provider before onboarding: geos and methods, approval rates, acquirers, fees and reserves, settlements, technical integration and support.</description>
+    <description>How to choose a payment provider for a casino: PSP types, reputation checks, what makes up the price, what to check in the contract and Annex, technical questions and launch.</description>
+  </item>
+  <item>
+    <title>What Is Smart Payment Routing</title>
+    <link>https://guropsp.com/blog/smart-routing-igaming/</link>
+    <guid isPermaLink="true">https://guropsp.com/blog/smart-routing-igaming/</guid>
+    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
+    <category>Routing</category>
+    <description>Smart routing for iGaming deposits: basic routing rules, cascading, BIN routing and sticky routing — what it’s made of and why each part matters.</description>
+  </item>
+  <item>
+    <title>Deposit Approval Rates in iGaming: Where the Money Is Really Lost</title>
+    <link>https://guropsp.com/blog/improve-deposit-approval-rate/</link>
+    <guid isPermaLink="true">https://guropsp.com/blog/improve-deposit-approval-rate/</guid>
+    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
+    <category>Approval rate</category>
+    <description>Why deposit approval rates in iGaming are almost always lower than they could be, where money is lost — from the cashier to the issuing bank — and why it’s hard to fix piecemeal.</description>
+  </item>
+  <item>
+    <title>Card Decline Codes: Why You Can’t Retry Everything</title>
+    <link>https://guropsp.com/blog/card-decline-codes-cascading/</link>
+    <guid isPermaLink="true">https://guropsp.com/blog/card-decline-codes-cascading/</guid>
+    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
+    <category>Cascading</category>
+    <description>Why uncontrolled cascading of declines hurts an iGaming operator: soft and hard declines, Visa and Mastercard retry rules, and why every project’s cascade matrix is different.</description>
+  </item>
+  <item>
+    <title>Casino Cashier Audit: 10 Questions Worth Answering Honestly</title>
+    <link>https://guropsp.com/blog/casino-cashier-audit-checklist/</link>
+    <guid isPermaLink="true">https://guropsp.com/blog/casino-cashier-audit-checklist/</guid>
+    <pubDate>Sat, 31 Oct 2026 08:00:00 +0000</pubDate>
+    <category>Audit</category>
+    <description>A short self-check for an iGaming cashier: 10 questions about the player path, methods, providers, cascading and analytics that show whether your cashier is losing deposits.</description>
   </item>
 </channel>
 </rss>

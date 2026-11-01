@@ -56,10 +56,13 @@ def render_body(blocks, lang, U):
         elif t == 'p': out.append(f'<p>{inline(b[1])}</p>')
         elif t in ('ul', 'ol'): out.append(f'<{t}>' + ''.join(f'<li>{inline(x)}</li>' for x in b[1]) + f'</{t}>')
         elif t == 'table':
+            plain = len(b) > 3 and b[3] == 'plain'
             head = ''.join(f'<th>{e(c)}</th>' for c in b[1])
-            rows = ''.join('<tr>' + ''.join(f'<td>{"<code>" + e(c) + "</code>" if i == 0 else e(c)}</td>' for i, c in enumerate(r)) + '</tr>' for r in b[2])
+            rows = ''.join('<tr>' + ''.join(f'<td>{"<code>" + e(c) + "</code>" if i == 0 and not plain else inline(c)}</td>' for i, c in enumerate(r)) + '</tr>' for r in b[2])
             out.append(f'<div class="codes-wrap art-table"><table class="codes"><thead><tr>{head}</tr></thead><tbody>{rows}</tbody></table></div>')
         elif t == 'cta': out.append(cta_box(b[1], lang, U))
+        elif t == 'note': out.append(f'<p class="art-note">{inline(b[1])}</p>')
+        elif t == 'h3': out.append(f'<h3>{e(b[1])}</h3>')
     return '\n'.join(out)
 
 
@@ -86,7 +89,7 @@ def render_article(a, lang, D, ver):
     redirect = redirect_js('/ru/blog/' + a['slug'] + '/') if lang == 'en' else ''
     toc = ''.join(f'<li><a href="#{b[1]}">{e(b[2])}</a></li>' for b in C['body'] if b[0] == 'h2')
     faq = ''.join(f'<details class="qa"><summary><h3>{e(q)}</h3><i aria-hidden="true"></i></summary><div class="qa-a"><p>{e(ans)}</p></div></details>' for q, ans in C['faq'])
-    others = [x for x in ARTICLES if x is not a]
+    others = sorted([x for x in ARTICLES if x is not a], key=lambda x: x['service'] != a['service'])[:3]
     rel = ''.join(card(x, lang, U) for x in others)
     svc = svc_by_slug(a['service'])
     rel += (f'<a class="rel tilt" href="{home}services/{svc["slug"]}/" data-reveal data-cursor="{e(U["read"])}"><span class="rel-k">{e(U["related"])}</span>'

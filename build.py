@@ -197,7 +197,7 @@ def render(d):
     return out
 
 h = hashlib.sha1()
-for f in sorted(glob.glob(ROOT + '/src/assets/*')) + [ROOT + '/src/template.html', ROOT + '/src/services.py', ROOT + '/src/services_content.py', ROOT + '/src/blog.py', ROOT + '/src/blog_content.py', ROOT + '/src/blog_more.py', ROOT + '/src/layout.py']: h.update(open(f, 'rb').read())
+for f in sorted(glob.glob(ROOT + '/src/assets/*')) + [ROOT + '/src/template.html', ROOT + '/src/services.py', ROOT + '/src/services_content.py', ROOT + '/src/blog.py', ROOT + '/src/blog_content.py', ROOT + '/src/blog_articles.py', ROOT + '/src/layout.py']: h.update(open(f, 'rb').read())
 VER = h.hexdigest()[:8]
 assert set(RU) == set(EN), set(RU) ^ set(EN)
 for D in (RU, EN): D['ver'] = VER; D['jsonld'] = jsonld(D)

@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Card Decline Codes: Which to Cascade and Which Not To | GURO PSP</title>
-<meta name="description" content="A guide to card decline codes: soft and hard declines, Visa and Mastercard retry rules, cascading after 3DS and how to build your own cascade matrix for iGaming.">
+<title>Card Decline Codes and Cascading: Why Not Retry Everything | GURO PSP</title>
+<meta name="description" content="Why uncontrolled cascading of declines hurts an iGaming operator: soft and hard declines, Visa and Mastercard retry rules, and why every project’s cascade matrix is different.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-<meta property="og:title" content="Card Decline Codes: Which to Cascade and Which Not To">
-<meta property="og:description" content="A guide to card decline codes: soft and hard declines, Visa and Mastercard retry rules, cascading after 3DS and how to build your own cascade matrix for iGaming.">
+<meta property="og:title" content="Card Decline Codes: Why You Can’t Retry Everything">
+<meta property="og:description" content="Why uncontrolled cascading of declines hurts an iGaming operator: soft and hard declines, Visa and Mastercard retry rules, and why every project’s cascade matrix is different.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="GURO PSP">
 <meta property="og:url" content="https://guropsp.com/blog/card-decline-codes-cascading/">
@@ -16,12 +16,12 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Card Decline Codes: Which to Cascade and Which Not To">
-<meta name="twitter:description" content="A guide to card decline codes: soft and hard declines, Visa and Mastercard retry rules, cascading after 3DS and how to build your own cascade matrix for iGaming.">
+<meta name="twitter:title" content="Card Decline Codes: Why You Can’t Retry Everything">
+<meta name="twitter:description" content="Why uncontrolled cascading of declines hurts an iGaming operator: soft and hard declines, Visa and Mastercard retry rules, and why every project’s cascade matrix is different.">
 <meta name="twitter:image" content="https://guropsp.com/og-en.jpg">
 <meta name="theme-color" content="#070809">
 <meta property="article:published_time" content="2026-10-31T08:00:00+00:00">
-<meta property="article:modified_time" content="2026-10-31T08:00:00+00:00">
+<meta property="article:modified_time" content="2026-11-01T08:00:00+00:00">
 <meta property="article:section" content="Cascading">
 <link rel="canonical" href="https://guropsp.com/blog/card-decline-codes-cascading/">
 <link rel="alternate" hreflang="en" href="https://guropsp.com/blog/card-decline-codes-cascading/">
@@ -36,8 +36,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=1893210a">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://guropsp.com/#org", "name": "GURO PSP", "url": "https://guropsp.com/", "logo": {"@type": "ImageObject", "url": "https://guropsp.com/icon-512.png", "width": 512, "height": 512}}, {"@type": "BlogPosting", "@id": "https://guropsp.com/blog/card-decline-codes-cascading/#article", "headline": "Card Decline Codes: Which to Cascade and Which Not To", "description": "A guide to card decline codes: soft and hard declines, Visa and Mastercard retry rules, cascading after 3DS and how to build your own cascade matrix for iGaming.", "inLanguage": "en", "datePublished": "2026-10-31", "dateModified": "2026-10-31", "mainEntityOfPage": "https://guropsp.com/blog/card-decline-codes-cascading/", "url": "https://guropsp.com/blog/card-decline-codes-cascading/", "image": {"@type": "ImageObject", "url": "https://guropsp.com/og-en.jpg", "width": 1200, "height": 630}, "author": {"@id": "https://guropsp.com/#org"}, "publisher": {"@id": "https://guropsp.com/#org"}, "wordCount": 585, "articleSection": "Cascading", "isPartOf": {"@id": "https://guropsp.com/blog/#blog"}, "about": {"@id": "https://guropsp.com/services/routing-cascading/#service"}}, {"@type": "BreadcrumbList", "@id": "https://guropsp.com/blog/card-decline-codes-cascading/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "GURO PSP", "item": "https://guropsp.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://guropsp.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Card Decline Codes: Which to Cascade and Which Not To", "item": "https://guropsp.com/blog/card-decline-codes-cascading/"}]}, {"@type": "FAQPage", "@id": "https://guropsp.com/blog/card-decline-codes-cascading/#faq", "mainEntity": [{"@type": "Question", "name": "What is payment cascading?", "acceptedAnswer": {"@type": "Answer", "text": "It is re-sending a declined transaction through another provider according to set rules in order to recover the deposit."}}, {"@type": "Question", "name": "Can you retry every decline?", "acceptedAnswer": {"@type": "Answer", "text": "No. Hard declines must not be retried, and for the rest Visa and Mastercard limit the number of retries. Exceeding the limits leads to fees and fines."}}]}]}</script>
+<link rel="stylesheet" href="/assets/site.css?v=457fb1ad">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://guropsp.com/#org", "name": "GURO PSP", "url": "https://guropsp.com/", "logo": {"@type": "ImageObject", "url": "https://guropsp.com/icon-512.png", "width": 512, "height": 512}}, {"@type": "BlogPosting", "@id": "https://guropsp.com/blog/card-decline-codes-cascading/#article", "headline": "Card Decline Codes: Why You Can’t Retry Everything", "description": "Why uncontrolled cascading of declines hurts an iGaming operator: soft and hard declines, Visa and Mastercard retry rules, and why every project’s cascade matrix is different.", "inLanguage": "en", "datePublished": "2026-10-31", "dateModified": "2026-11-01", "mainEntityOfPage": "https://guropsp.com/blog/card-decline-codes-cascading/", "url": "https://guropsp.com/blog/card-decline-codes-cascading/", "image": {"@type": "ImageObject", "url": "https://guropsp.com/og-en.jpg", "width": 1200, "height": 630}, "author": {"@id": "https://guropsp.com/#org"}, "publisher": {"@id": "https://guropsp.com/#org"}, "wordCount": 365, "articleSection": "Cascading", "isPartOf": {"@id": "https://guropsp.com/blog/#blog"}, "about": {"@id": "https://guropsp.com/services/routing-cascading/#service"}}, {"@type": "BreadcrumbList", "@id": "https://guropsp.com/blog/card-decline-codes-cascading/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "GURO PSP", "item": "https://guropsp.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://guropsp.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Card Decline Codes: Why You Can’t Retry Everything", "item": "https://guropsp.com/blog/card-decline-codes-cascading/"}]}, {"@type": "FAQPage", "@id": "https://guropsp.com/blog/card-decline-codes-cascading/#faq", "mainEntity": [{"@type": "Question", "name": "What is payment cascading?", "acceptedAnswer": {"@type": "Answer", "text": "It is re-sending a declined transaction through another provider according to set rules in order to recover the deposit."}}, {"@type": "Question", "name": "Can you retry every decline?", "acceptedAnswer": {"@type": "Answer", "text": "No. Hard declines must not be retried, and for the rest Visa and Mastercard limit the number of retries. Exceeding the limits leads to fees and fines."}}]}]}</script>
 <script>
 document.documentElement.classList.add('js');
 (function(){try{var r=new URLSearchParams(location.search).get('ref');if(r){r=r.replace(/[^A-Za-z0-9_-]/g,'').slice(0,40);var o=localStorage.getItem('guro_ref'),t=+localStorage.getItem('guro_ref_t')||0;if(r&&(!o||Date.now()-t>7776000000)){localStorage.setItem('guro_ref',r);localStorage.setItem('guro_ref_t',String(Date.now()));}}}catch(e){}
@@ -70,36 +70,28 @@ try{var L=localStorage.getItem('guro_lang');var ls=(navigator.languages&&navigat
 <header class="art-hero">
   <div class="wrap art-wrap">
     <nav class="crumbs" aria-label="Breadcrumb" data-intro><a href="/">GURO PSP</a><span aria-hidden="true">/</span><a href="/blog/">Blog</a><span aria-hidden="true">/</span><span aria-current="page">Cascading</span></nav>
-    <p class="art-meta" data-intro><span class="art-tag">Cascading</span><time datetime="2026-10-31">31 October 2026</time><span>7 min</span></p>
-    <h1 class="display art-title" data-intro>Card Decline Codes: Which to Cascade and Which Not To</h1>
-    <p class="lead art-lead" data-intro>Cascading recovers some deposits, but only if you understand why the bank declined. Retrying every decline means card scheme fines and damaged relationships with acquirers. Here is which declines are worth cascading and how to build your own matrix.</p>
+    <p class="art-meta" data-intro><span class="art-tag">Cascading</span><time datetime="2026-10-31">31 October 2026</time><span>4 min</span></p>
+    <h1 class="display art-title" data-intro>Card Decline Codes: Why You Can’t Retry Everything</h1>
+    <p class="lead art-lead" data-intro>Cascading recovers some deposits, but only if you understand why the bank declined. Retrying every decline means card scheme fees and damaged relationships with acquirers. Here is why there are no universal rules.</p>
   </div>
 </header>
 <div class="wrap art-grid">
-  <aside class="art-toc" aria-label="Contents"><p>Contents</p><ol><li><a href="#soft-hard">Soft and hard declines</a></li><li><a href="#matrix">A typical code matrix</a></li><li><a href="#schemes">Visa and Mastercard rules</a></li><li><a href="#3ds">Cascading after 3DS</a></li><li><a href="#own-matrix">How to build your own matrix</a></li><li><a href="#summary">Summary</a></li></ol></aside>
+  <aside class="art-toc" aria-label="Contents"><p>Contents</p><ol><li><a href="#soft-hard">Not all declines are equal</a></li><li><a href="#schemes">Card schemes watch retries</a></li><li><a href="#3ds">Cascading after 3DS is a separate story</a></li><li><a href="#own">Why every matrix is different</a></li></ol></aside>
   <div class="prose">
-<h2 id="soft-hard">Soft and hard declines</h2>
-<p>All declines fall into two broad groups:</p>
-<ul><li><strong>Soft</strong> — the bank may approve the payment later or at another acquirer: generic decline, issuer unavailable, system error, authentication required.</li><li><strong>Hard</strong> — the bank won’t approve the payment under any conditions: lost or stolen card, invalid number, closed account, suspected fraud.</li></ul>
-<p>Only soft declines are worth cascading. Retrying a hard decline won’t bring a deposit, but it will add pointless attempts on the card.</p>
-<h2 id="matrix">A typical code matrix</h2>
-<p>The codes below are common ISO 8583 meanings. Individual acquirers and card schemes may interpret them differently, so treat this as a starting point, not ready-made rules.</p>
-<div class="codes-wrap art-table"><table class="codes"><thead><tr><th>Code</th><th>Meaning</th><th>Action</th></tr></thead><tbody><tr><td><code>05</code></td><td>Do not honor — generic issuer decline</td><td>Cascade to another acquirer</td></tr><tr><td><code>91</code></td><td>Issuer unavailable</td><td>Cascade to another provider</td></tr><tr><td><code>96</code></td><td>System malfunction</td><td>Cascade to another provider</td></tr><tr><td><code>1A / 65</code></td><td>Authentication required (SCA)</td><td>Retry with 3DS</td></tr><tr><td><code>51</code></td><td>Insufficient funds</td><td>Don’t cascade, show a clear message</td></tr><tr><td><code>61</code></td><td>Exceeds card limit</td><td>Don’t cascade, offer another method</td></tr><tr><td><code>57</code></td><td>Transaction not permitted to cardholder</td><td>Don’t cascade, offer another method</td></tr><tr><td><code>54</code></td><td>Expired card</td><td>Don’t cascade, ask for another card</td></tr><tr><td><code>14</code></td><td>Invalid card number</td><td>Don’t cascade</td></tr><tr><td><code>41 / 43</code></td><td>Lost / stolen card</td><td>Never retry</td></tr><tr><td><code>59</code></td><td>Suspected fraud</td><td>Never retry</td></tr></tbody></table></div>
-<p>Declines such as 51 and 61 are technically “soft”, but cascading to another provider won’t fix them: the issue is the card, not the acquirer. A clear message and an alternative method help the player more.</p>
-<h2 id="schemes">Visa and Mastercard rules</h2>
-<p>Both card schemes control retries:</p>
-<ul><li><strong>Visa</strong> groups declines into categories. Declines the issuer will never approve must not be retried; for the rest there is a limit on retries per card over a period. Merchants pay fees for exceeding it.</li><li><strong>Mastercard</strong> returns a Merchant Advice Code (MAC) in the response. It states directly whether a retry is allowed: for example, MAC 03 means “do not try again”.</li></ul>
-<p>Exact limits and fees change, so check them against current scheme rules and your acquirer. The key point: cascading must take into account the decline code, the MAC and the number of attempts already made on the card.</p>
+<h2 id="soft-hard">Not all declines are equal</h2>
+<p>Declines fall into two broad groups. <strong>Soft</strong> — the bank may approve the payment later or at another acquirer. <strong>Hard</strong> — it won’t approve it under any conditions: for example, the card is lost or stolen. Retrying a hard decline won’t bring a deposit, but it will add pointless attempts on the card.</p>
+<p>The trouble is that the line between them isn’t as obvious as it seems. The same code is interpreted differently by different acquirers and schemes, and some technically “soft” declines can’t be solved by cascading at all — the problem is the card, not the provider.</p>
+<h2 id="schemes">Card schemes watch retries</h2>
+<p>Visa limits the number of retries per card and prohibits retrying declines the issuer will never approve. Mastercard returns a Merchant Advice Code that states directly whether a retry is allowed. Merchants pay fees for violations, and the acquirer starts looking at the traffic more closely.</p>
+<p>Rules and limits change from time to time, so a cascade set up “once and for all” gradually starts working against you.</p>
 <aside class="art-cta" data-reveal><span class="rel-k">Related service</span><strong>Routing and cascading</strong><p>We set up smart routing and cascading for deposits: rules by geo, BIN and issuing bank, cascading by decline code and after 3DS, sticky routing. Specs for in-house gateways and setup.</p><a class="btn btn-sm btn-ghost magnetic" href="/services/routing-cascading/" data-cursor="Read"><span>Learn about the service</span></a></aside>
-<h2 id="3ds">Cascading after 3DS</h2>
-<p>If a player has already passed 3DS and the provider declines the payment, retrying at another provider usually requires a new authentication. A second 3DS window is a common reason players abandon a deposit.</p>
-<p>So enable cascading after 3DS selectively: by decline code, amount and player history. And always track how many of these cascades end in a successful deposit and how many in a lost player.</p>
-<h2 id="own-matrix">How to build your own matrix</h2>
-<ol><li>Export declines for the last 30–90 days with codes, provider, BIN, bank and geo.</li><li>For each code, calculate the share of successful retries at another provider if cascading was already running.</li><li>Turn off cascading for hard declines and for codes where retries almost never succeed.</li><li>For 51 and 61, add clear cashier messages instead of retries.</li><li>Take Mastercard MACs and Visa retry limits into account.</li><li>Review the matrix monthly: providers and banks change their behaviour.</li></ol>
-<h2 id="summary">Summary</h2>
-<p>Good cascading isn’t “retry everything everywhere”, it’s precise rules by code, provider and bank. It recovers deposits, stays within card scheme rules and doesn’t annoy players with extra 3DS windows. If you want your current cascade rules reviewed or built from scratch, we can help.</p>
+<h2 id="3ds">Cascading after 3DS is a separate story</h2>
+<p>If a player has already passed 3DS and the provider declines the payment, a retry at another provider usually means a new authentication window. Some players leave at that point. Whether such a cascade is worth it depends on the amount, the decline code and the player’s history.</p>
+<h2 id="own">Why every matrix is different</h2>
+<p>A correct cascade matrix isn’t built from a table on the internet but from your own data: which declines, at which providers, for which banks and with what retry results. Two operators in the same geo can have fundamentally different matrices. And it needs regular review — providers and banks change their behaviour.</p>
+<p>If your cascade was set up long ago or “by default”, it is probably losing deposits and creating extra risk at the same time. We review it on your data and build rules for your providers.</p>
     <section class="art-faq" aria-labelledby="faq-h"><h2 id="faq-h">In short</h2><div class="faq-list"><details class="qa"><summary><h3>What is payment cascading?</h3><i aria-hidden="true"></i></summary><div class="qa-a"><p>It is re-sending a declined transaction through another provider according to set rules in order to recover the deposit.</p></div></details><details class="qa"><summary><h3>Can you retry every decline?</h3><i aria-hidden="true"></i></summary><div class="qa-a"><p>No. Hard declines must not be retried, and for the rest Visa and Mastercard limit the number of retries. Exceeding the limits leads to fees and fines.</p></div></details></div></section>
-    <p class="art-upd">Published: <time datetime="2026-10-31">31 October 2026</time> · Updated: <time datetime="2026-10-31">31 October 2026</time> · GURO PSP</p>
+    <p class="art-upd">Published: <time datetime="2026-10-31">31 October 2026</time> · Updated: <time datetime="2026-11-01">1 November 2026</time> · GURO PSP</p>
   </div>
 </div>
 </article>
@@ -107,7 +99,7 @@ try{var L=localStorage.getItem('guro_lang');var ls=(navigator.languages&&navigat
 <section class="sec sec-line">
   <div class="wrap">
     <div class="sec-head"><h2 class="display" data-words>More on this topic</h2><p class="sub" data-reveal><a class="svc-link" href="/blog/">All articles<span aria-hidden="true">→</span></a></p></div>
-    <div class="rels"><a class="rel post tilt" href="/blog/improve-deposit-approval-rate/" data-reveal data-cursor="Read"><span class="rel-k">Approval rate · <time datetime="2026-10-31">31 October 2026</time> · 8 min</span><strong>How to Improve Deposit Approval Rates in iGaming: 7 Levers</strong><p>A practical guide: how to measure approval rate and what to change in the cashier, routing, cascading and 3DS, and how to work with providers and declines to get more deposits through.</p><span class="rel-arrow" aria-hidden="true">→</span></a><a class="rel post tilt" href="/blog/casino-cashier-audit-checklist/" data-reveal data-cursor="Read"><span class="rel-k">Audit · <time datetime="2026-10-31">31 October 2026</time> · 9 min</span><strong>Casino Cashier Audit Checklist: 30 Points</strong><p>30 points to self-check an iGaming cashier: player path, methods by geo, gateway, routing and cascading, providers, analytics and processes.</p><span class="rel-arrow" aria-hidden="true">→</span></a><a class="rel post tilt" href="/blog/how-to-choose-psp-igaming/" data-reveal data-cursor="Read"><span class="rel-k">Providers · <time datetime="2026-10-31">31 October 2026</time> · 7 min</span><strong>How to Choose a PSP for iGaming: 12 Questions to Ask</strong><p>Questions to ask a payment provider before onboarding: geos and methods, approval rates, acquirers, fees and reserves, settlements, technical integration and support.</p><span class="rel-arrow" aria-hidden="true">→</span></a><a class="rel tilt" href="/services/routing-cascading/" data-reveal data-cursor="Read"><span class="rel-k">Related service</span><strong>Routing and cascading</strong><p>We set up smart routing and cascading for deposits: rules by geo, BIN and issuing bank, cascading by decline code and after 3DS, sticky routing. Specs for in-house gateways and setup.</p><span class="rel-arrow" aria-hidden="true">→</span></a></div>
+    <div class="rels"><a class="rel post tilt" href="/blog/smart-routing-igaming/" data-reveal data-cursor="Read"><span class="rel-k">Routing · <time datetime="2026-10-31">31 October 2026</time> · 6 min</span><strong>What Is Smart Payment Routing</strong><p>Smart routing for iGaming deposits: basic routing rules, cascading, BIN routing and sticky routing — what it’s made of and why each part matters.</p><span class="rel-arrow" aria-hidden="true">→</span></a><a class="rel post tilt" href="/blog/igaming-geo-payment-analysis/" data-reveal data-cursor="Read"><span class="rel-k">GEO · <time datetime="2026-10-31">31 October 2026</time> · 7 min</span><strong>GEO Analysis for iGaming Payments</strong><p>How to analyse a country before launching casino payments: regulation, methods by region, competitor benchmarking, cashier snapshots and finding providers via redirects.</p><span class="rel-arrow" aria-hidden="true">→</span></a><a class="rel post tilt" href="/blog/how-to-choose-psp-igaming/" data-reveal data-cursor="Read"><span class="rel-k">Providers · <time datetime="2026-10-31">31 October 2026</time> · 8 min</span><strong>How to Choose a PSP for iGaming: Order and Questions Before Signing</strong><p>How to choose a payment provider for a casino: PSP types, reputation checks, what makes up the price, what to check in the contract and Annex, technical questions and launch.</p><span class="rel-arrow" aria-hidden="true">→</span></a><a class="rel tilt" href="/services/routing-cascading/" data-reveal data-cursor="Read"><span class="rel-k">Related service</span><strong>Routing and cascading</strong><p>We set up smart routing and cascading for deposits: rules by geo, BIN and issuing bank, cascading by decline code and after 3DS, sticky routing. Specs for in-house gateways and setup.</p><span class="rel-arrow" aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
@@ -128,8 +120,8 @@ try{var L=localStorage.getItem('guro_lang');var ls=(navigator.languages&&navigat
   </div>
 </footer>
 
-<script src="/assets/gsap.min.js?v=1893210a" defer></script>
-<script src="/assets/ScrollTrigger.min.js?v=1893210a" defer></script>
-<script src="/assets/site.js?v=1893210a" defer></script>
+<script src="/assets/gsap.min.js?v=457fb1ad" defer></script>
+<script src="/assets/ScrollTrigger.min.js?v=457fb1ad" defer></script>
+<script src="/assets/site.js?v=457fb1ad" defer></script>
 </body>
 </html>
