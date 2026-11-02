@@ -38,6 +38,15 @@ run `python3 build.py`, commit both `src/` and `site/`, push to `main`. That's t
 - Quality over volume: 1–2 articles per week max.
 - The GEO analysis article is the owner's text — don't change it without asking. PSP selection and smart routing were shortened on 1 Nov 2026 with his approval.
 
+## GURO ecosystem (owner's request, 1 Nov 2026)
+- GURO PSP is one of the owner's GURO products: GURO ID (guroid.com — reputation: deals/hires confirmed by both sides,
+  jobs board), Private Gambling Community (private Telegram community, 5,000+ members, 7 verticals, sponsors Silver/Gold/Platinum,
+  join via t.me/GamblingCommunitybot, media kit on request from t.me/GuroArtem), iGaming School (igaming-school.com, RU courses, verifiable certificate).
+- Page: `src/ecosystem.py` → `/ecosystem/` and `/ru/ecosystem/`; linked from nav, footer and the home teaser (`#ecosystem`).
+  The products must stay visible on the site — don't remove these links.
+- **OstrovUA is a separate, non-iGaming project. Never mention or link it anywhere on this site.**
+- Where it fits naturally (not in every article), a blog article may mention a related GURO product in one sentence.
+
 ## Content plan (next topics, in order — skip ones already in `ARTICLES`)
 Already covered: approval rate, decline codes, cashier self-check, GEO analysis, PSP selection, smart routing (BIN, sticky, cascades).
 1. Payment orchestrator vs in-house gateway: what really differs (payments-audit)
