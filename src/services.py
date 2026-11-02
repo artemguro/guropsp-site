@@ -37,7 +37,9 @@ def jsonld(p, lang, D, C):
          'provider': {'@id': org}, 'url': url,
          'areaServed': [{'@type': 'Place', 'name': n} for n in ['European Union', 'United Kingdom', 'Canada', 'Australia', 'New Zealand']],
          'offers': [{'@type': 'Offer', 'name': D['pb1l'], 'priceCurrency': 'EUR', 'priceSpecification': {'@type': 'PriceSpecification', 'minPrice': 600, 'priceCurrency': 'EUR'}},
-                    {'@type': 'Offer', 'name': D['pb2l'], 'priceCurrency': 'EUR', 'priceSpecification': {'@type': 'PriceSpecification', 'minPrice': 3000, 'maxPrice': 4000, 'priceCurrency': 'EUR'}}]},
+                    {'@type': 'Offer', 'name': D['pb2l'], 'priceCurrency': 'EUR', 'priceSpecification': {'@type': 'PriceSpecification', 'minPrice': 3000, 'maxPrice': 4000, 'priceCurrency': 'EUR'}},
+                    {'@type': 'Offer', 'name': D['pb0l'], 'priceCurrency': 'EUR', 'priceSpecification': {'@type': 'UnitPriceSpecification', 'minPrice': 100, 'maxPrice': 150, 'priceCurrency': 'EUR', 'unitText': 'HOUR'}},
+                    {'@type': 'Offer', 'name': D['pb3l'], 'priceCurrency': 'EUR', 'priceSpecification': {'@type': 'UnitPriceSpecification', 'minPrice': 1000, 'priceCurrency': 'EUR', 'unitText': 'MONTH'}}]},
         {'@type': 'FAQPage', '@id': url + '#faq', 'mainEntity': [
             {'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in C['faq']]},
     ]
@@ -163,9 +165,12 @@ def render(p, lang, D, ver):
   <div class="wrap">
     <div class="sec-head"><h2 class="display" data-words>{e(D['price_h'])}</h2><p class="sub" data-reveal>{e(D['price_sub'])}</p></div>
     <div class="price">
+      <div class="pbox tilt" data-reveal><span class="pbox-lbl">{e(D['pb0l'])}</span><strong>{e(D['pb0v'])}</strong><p>{e(D['pb0p'])}</p></div>
       <div class="pbox tilt" data-reveal><span class="pbox-lbl">{e(D['pb1l'])}</span><strong>{e(D['pb1v'])}</strong><p>{e(D['pb1p'])}</p></div>
       <div class="pbox pbox-hl tilt" data-reveal><span class="pbox-lbl">{e(D['pb2l'])}</span><strong class="metal">{e(D['pb2v'])}</strong><p>{e(D['pb2p'])}</p></div>
+      <div class="pbox tilt" data-reveal><span class="pbox-lbl">{e(D['pb3l'])}</span><strong>{e(D['pb3v'])}</strong><p>{e(D['pb3p'])}</p></div>
     </div>
+    <p class="price-free" data-reveal>{e(D['price_free'])}</p>
   </div>
 </section>
 
