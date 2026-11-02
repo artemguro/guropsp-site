@@ -5,8 +5,8 @@ SITE = 'https://guropsp.com'
 e = lambda s: H.escape(s, quote=True)
 
 NAV = {
-    'ru': dict(services='Услуги', audit='Аудит платежей', routing='Роутинг и каскадинг', blog='Блог', price='Стоимость', rss='Блог GURO PSP (RSS)'),
-    'en': dict(services='Services', audit='Payments audit', routing='Routing and cascading', blog='Blog', price='Pricing', rss='GURO PSP blog (RSS)'),
+    'ru': dict(services='Услуги', audit='Аудит платежей', routing='Роутинг и каскадинг', blog='Блог', eco='Экосистема', price='Стоимость', rss='Блог GURO PSP (RSS)'),
+    'en': dict(services='Services', audit='Payments audit', routing='Routing and cascading', blog='Blog', eco='Ecosystem', price='Pricing', rss='GURO PSP blog (RSS)'),
 }
 
 
@@ -25,7 +25,8 @@ def nav_links(lang, cur):
     items = [('services', h + '#services', N['services']),
              ('payments-audit', h + 'services/payments-audit/', N['audit']),
              ('routing-cascading', h + 'services/routing-cascading/', N['routing']),
-             ('blog', h + 'blog/', N['blog'])]
+             ('blog', h + 'blog/', N['blog']),
+             ('ecosystem', h + 'ecosystem/', N['eco'])]
     return ''.join('<a href="%s"%s>%s</a>' % (u, ' aria-current="page"' if k == cur else '', e(t)) for k, u, t in items)
 
 
@@ -108,7 +109,7 @@ def chrome_bottom(lang, D, ver):
 <footer class="foot">
   <div class="wrap foot-in">
     <span>© <span id="yr">2026</span> GURO PSP. {e(D['foot'])}</span>
-    <nav class="foot-links" aria-label="{e(N['services'])}"><a href="{h}services/payments-audit/">{e(N['audit'])}</a><a href="{h}services/routing-cascading/">{e(N['routing'])}</a><a href="{h}blog/">{e(N['blog'])}</a><a href="{h}">GuroPSP.com</a></nav>
+    <nav class="foot-links" aria-label="{e(N['services'])}"><a href="{h}services/payments-audit/">{e(N['audit'])}</a><a href="{h}services/routing-cascading/">{e(N['routing'])}</a><a href="{h}blog/">{e(N['blog'])}</a><a href="{h}ecosystem/">{e(N['eco'])}</a><a href="{h}">GuroPSP.com</a></nav>
   </div>
 </footer>
 

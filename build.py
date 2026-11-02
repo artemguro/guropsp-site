@@ -51,6 +51,11 @@ RU = dict(
  exp_h='Практики, а не теоретики',
  exp_p='Смотрим на платежи со стороны оператора. Не продаём оркестраторы и PSP: сравниваем варианты под вашу задачу, а выбор остаётся за вами.',
  tier23='Tier 2–3 по запросу',
+ eco_h='Мы не только про платежи', eco_sub='GURO PSP — часть экосистемы GURO. У нас есть комьюнити индустрии, платформа репутации и школа.',
+ eco1k='Платформа репутации', eco1p='Сделки и наймы, подтверждённые второй стороной. Репутация, которую нельзя купить.',
+ eco2k='Комьюнити', eco2p='Закрытое Telegram-сообщество на 5 000+ человек из семи вертикалей. Для брендов — спонсорство.',
+ eco3k='Обучение', eco3p='Курсы о том, как устроен iGaming: от введения до программ для руководителей.',
+ eco_btn='Вся экосистема GURO',
  pr1h='Знаем рынок PSP', pr1p='Реальные цены методов и надёжных провайдеров. Учим получать лучшие условия.',
  pr2h='Лет операционного опыта в iGaming', pr2p='Сами настраивали кассы, роутинг и работу с отказами. Своя система смарт-роутинга работает уже в десятках проектов.',
  pr3h='Фокус на картах в Tier 1', pr3p='Там основная прибыль, сложности и риски. Прибыль максимизируем, риски минимизируем.',
@@ -128,6 +133,11 @@ EN = dict(
  exp_h='Practitioners, not theorists',
  exp_p='We look at payments from the operator’s side. We don’t sell orchestrators or PSPs: we compare options for your task, and the choice stays with you.',
  tier23='Tier 2–3 on request',
+ eco_h='More than payments', eco_sub='GURO PSP is part of the GURO ecosystem: an industry community, a reputation platform and a school.',
+ eco1k='Reputation platform', eco1p='Deals and hires confirmed by the other side. Reputation you cannot buy.',
+ eco2k='Community', eco2p='A private Telegram community of 5,000+ people from seven verticals. Sponsorship for brands.',
+ eco3k='Education', eco3p='Courses on how iGaming works, from an introduction to C-level tracks.',
+ eco_btn='The whole GURO ecosystem',
  pr1h='We know the PSP market', pr1p='Real method pricing and reliable providers. We show you how to get the best terms.',
  pr2h='Years of iGaming operations experience', pr2p='We’ve set up cashiers, routing and decline handling ourselves. Our own smart routing system already runs in dozens of projects.',
  pr3h='Focus on cards in Tier 1', pr3p='That’s where most of the profit, complexity and risk sits. We maximise the profit and minimise the risk.',
@@ -162,7 +172,7 @@ EN = dict(
  svc_type='Payments consulting for iGaming',
 )
 
-RAW = {'lang_redirect', 'base', 'canonical', 'lang_href', 'jsonld', 'ver', 'u_audit', 'u_routing', 'u_blog'}
+RAW = {'lang_redirect', 'base', 'canonical', 'lang_href', 'jsonld', 'ver', 'u_audit', 'u_routing', 'u_blog', 'u_eco'}
 import sys; sys.path.insert(0, ROOT + '/src')
 import services as SV
 from services_content import AUDIT, ROUTING
@@ -170,6 +180,7 @@ for D in (RU, EN):
     pre = '/ru/' if D is RU else '/'
     D['u_audit'] = pre + 'services/payments-audit/'; D['u_routing'] = pre + 'services/routing-cascading/'
     D['u_blog'] = pre + 'blog/'; D['l_blog'] = 'Блог' if D is RU else 'Blog'
+    D['u_eco'] = pre + 'ecosystem/'; D['l_eco'] = 'Экосистема' if D is RU else 'Ecosystem'
     D['l_audit'] = AUDIT[D['lang']]['crumb']; D['l_routing'] = ROUTING[D['lang']]['crumb']
 
 import json, hashlib, glob, datetime
@@ -205,7 +216,7 @@ def render(d):
     return out
 
 h = hashlib.sha1()
-for f in sorted(glob.glob(ROOT + '/src/assets/*')) + [ROOT + '/src/template.html', ROOT + '/src/services.py', ROOT + '/src/services_content.py', ROOT + '/src/blog.py', ROOT + '/src/blog_content.py', ROOT + '/src/blog_articles.py', ROOT + '/src/layout.py']: h.update(open(f, 'rb').read())
+for f in sorted(glob.glob(ROOT + '/src/assets/*')) + [ROOT + '/src/template.html', ROOT + '/src/services.py', ROOT + '/src/services_content.py', ROOT + '/src/blog.py', ROOT + '/src/blog_content.py', ROOT + '/src/blog_articles.py', ROOT + '/src/layout.py', ROOT + '/src/ecosystem.py']: h.update(open(f, 'rb').read())
 VER = h.hexdigest()[:8]
 assert set(RU) == set(EN), set(RU) ^ set(EN)
 for D in (RU, EN): D['ver'] = VER; D['jsonld'] = jsonld(D)
@@ -238,13 +249,19 @@ for D in (EN, RU):
     for A in BL.ARTICLES:
         os.makedirs(pre + '/blog/' + A['slug'], exist_ok=True)
         open(pre + '/blog/' + A['slug'] + '/index.html', 'w', encoding='utf-8').write(BL.render_article(A, D['lang'], D, VER))
+import ecosystem as ECO
+for D in (EN, RU):
+    pre = OUT + ('/ru' if D is RU else '')
+    os.makedirs(pre + '/ecosystem', exist_ok=True)
+    open(pre + '/ecosystem/index.html', 'w', encoding='utf-8').write(ECO.render(D['lang'], D, VER))
+ECO_URLS = [(ECO.url(l), (ECO.url('en'), ECO.url('ru'))) for l in ('en', 'ru')]
 BLOG_URLS = [(BL.hub_url(l), (BL.hub_url('en'), BL.hub_url('ru'))) for l in ('en', 'ru')]
 for A in BL.ARTICLES:
     BLOG_URLS += [(BL.art_url(A, l), (BL.art_url(A, 'en'), BL.art_url(A, 'ru')), A['updated']) for l in ('en', 'ru')]
 open(OUT + '/' + INDEXNOW_KEY + '.txt', 'w').write(INDEXNOW_KEY)
 open(OUT + '/404.html', 'w', encoding='utf-8').write(open(ROOT + '/src/404.html', encoding='utf-8').read().replace('{{ver}}', VER))
 altx = lambda en, ru: '<xhtml:link rel="alternate" hreflang="en" href="%s"/><xhtml:link rel="alternate" hreflang="ru" href="%s"/><xhtml:link rel="alternate" hreflang="x-default" href="%s"/>' % (en, ru, en)
-URLS = [(u, ('https://guropsp.com/', 'https://guropsp.com/ru/')) for u in ['https://guropsp.com/', 'https://guropsp.com/ru/']] + SVC_URLS + BLOG_URLS
+URLS = [(u, ('https://guropsp.com/', 'https://guropsp.com/ru/')) for u in ['https://guropsp.com/', 'https://guropsp.com/ru/']] + SVC_URLS + ECO_URLS + BLOG_URLS
 open(OUT + '/sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
     + ''.join('  <url><loc>%s</loc><lastmod>%s</lastmod>%s</url>\n' % (x[0], x[2] if len(x) > 2 else today, altx(*x[1])) for x in URLS)
     + '</urlset>\n')
@@ -266,7 +283,7 @@ ErrorDocument 404 /404.html
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 ''')
-en_txt = open(OUT + '/index.html', encoding='utf-8').read() + ''.join(open(OUT + '/services/' + P['slug'] + '/index.html', encoding='utf-8').read() for P in SV.PAGES)
+en_txt = open(OUT + '/index.html', encoding='utf-8').read() + ''.join(open(OUT + '/services/' + P['slug'] + '/index.html', encoding='utf-8').read() for P in SV.PAGES) + open(OUT + '/ecosystem/index.html', encoding='utf-8').read()
 print('Cyrillic in EN:', sorted(set(re.findall(r'[А-Яа-яЁё]+', en_txt))))
 open(OUT + '/VERSION', 'w').write(VER + '-' + datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%d%H%M%S') + '\n')
 print('built')
