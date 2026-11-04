@@ -101,18 +101,20 @@
   gsap.registerPlugin(ScrollTrigger);
 
   /* ---------- text splitting ---------- */
+  function srCopy(el, text) { var s = document.createElement('span'); s.className = 'sr-only'; s.textContent = text; el.appendChild(s); }
   function splitChars(el) {
-    var text = el.textContent.trim(); el.setAttribute('aria-label', text); el.textContent = '';
+    var text = el.textContent.trim(); el.textContent = '';
     var chars = [];
     text.split(/\s+/).forEach(function (word, i, arr) {
       var w = document.createElement('span'); w.className = 'w'; w.setAttribute('aria-hidden', 'true');
       Array.from(word).forEach(function (ch) { var c = document.createElement('span'); c.className = 'c'; c.textContent = ch; w.appendChild(c); chars.push(c); });
       el.appendChild(w); if (i < arr.length - 1) el.appendChild(document.createTextNode(' '));
     });
+    srCopy(el, text);
     return chars;
   }
   function splitWords(el, masked) {
-    var text = el.textContent.trim(); el.setAttribute('aria-label', text); el.textContent = '';
+    var text = el.textContent.trim(); el.textContent = '';
     var words = [];
     text.split(/\s+/).forEach(function (word, i, arr) {
       var outer = document.createElement('span'); outer.setAttribute('aria-hidden', 'true');
@@ -120,6 +122,7 @@
       else { outer.className = 'sw'; outer.textContent = word; words.push(outer); }
       el.appendChild(outer); if (i < arr.length - 1) el.appendChild(document.createTextNode(' '));
     });
+    srCopy(el, text);
     return words;
   }
   var heroChars = [];

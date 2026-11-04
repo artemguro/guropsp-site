@@ -30,7 +30,8 @@ def nav_links(lang, cur):
     return ''.join('<a href="%s"%s>%s</a>' % (u, ' aria-current="page"' if k == cur else '', e(t)) for k, u, t in items)
 
 
-def chrome_top(lang, D, ver, title, desc, og_title, url, alt_en, alt_ru, ld, redirect, src, cur='', og_type='website', extra_head=''):
+def chrome_top(lang, D, ver, title, desc, og_title, url, alt_en, alt_ru, ld, redirect, src, cur='', og_type='website', extra_head='', og_image=None):
+    og_image = og_image or f'{SITE}/og-{lang}.jpg'
     other = 'en' if lang == 'ru' else 'ru'
     home = prefix(lang)
     alt_x = alt_en if alt_en else alt_ru
@@ -54,13 +55,13 @@ def chrome_top(lang, D, ver, title, desc, og_title, url, alt_en, alt_ru, ld, red
 <meta property="og:site_name" content="GURO PSP">
 <meta property="og:url" content="{url}">
 <meta property="og:locale" content="{D['og_locale']}">
-<meta property="og:image" content="{SITE}/og-{lang}.jpg">
+<meta property="og:image" content="{og_image}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(og_title)}">
 <meta name="twitter:description" content="{e(desc)}">
-<meta name="twitter:image" content="{SITE}/og-{lang}.jpg">
+<meta name="twitter:image" content="{og_image}">
 <meta name="theme-color" content="#070809">
 {extra_head}<link rel="canonical" href="{url}">
 {hreflang}{rss}<link rel="icon" href="/favicon.ico" sizes="48x48">

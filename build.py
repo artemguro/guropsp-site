@@ -10,7 +10,7 @@ REDIRECT_EN = ("try{var L=localStorage.getItem('guro_lang');var ls=(navigator.la
 
 RU = dict(
  lang='ru', base='../', canonical='https://guropsp.com/ru/', lang_redirect='',
- lang_href='../', lang_set='en', lang_text='EN', lang_label='English version',
+ lang_href='../', lang_set='en', lang_text='EN', lang_label='EN — English version',
  title='Аудит платежей для iGaming: касса, PSP, роутинг и каскадинг | GURO PSP',
  desc='Повышаем проходимость депозитов в iGaming: аудит кассы и PSP, смарт-роутинг, каскадинг, работа с отказами. Tier 1: EU, CA, AU, NZ. Аудит от 600 €.',
  og_title='GURO PSP — больше успешных депозитов с тем же трафиком',
@@ -92,7 +92,7 @@ RU = dict(
 
 EN = dict(
  lang='en', base='', canonical='https://guropsp.com/', lang_redirect=REDIRECT_EN,
- lang_href='ru/', lang_set='ru', lang_text='RU', lang_label='Русская версия',
+ lang_href='ru/', lang_set='ru', lang_text='RU', lang_label='RU — Русская версия',
  title='iGaming Payments Consulting: PSP Audit, Routing & Cascading | GURO PSP',
  desc='Raise deposit approval rates for iGaming: cashier and PSP audit, smart routing, cascading and decline handling. Tier 1: EU, CA, AU, NZ. Audits from €600.',
  og_title='GURO PSP — more successful deposits from the same traffic',
@@ -172,7 +172,7 @@ EN = dict(
  svc_type='Payments consulting for iGaming',
 )
 
-RAW = {'lang_redirect', 'base', 'canonical', 'lang_href', 'jsonld', 'ver', 'u_audit', 'u_routing', 'u_blog', 'u_eco'}
+RAW = {'lang_redirect', 'base', 'canonical', 'lang_href', 'jsonld', 'ver', 'u_audit', 'u_routing', 'u_blog', 'u_eco', 'latest'}
 import sys; sys.path.insert(0, ROOT + '/src')
 import services as SV
 from services_content import AUDIT, ROUTING
@@ -182,6 +182,8 @@ for D in (RU, EN):
     D['u_blog'] = pre + 'blog/'; D['l_blog'] = 'Блог' if D is RU else 'Blog'
     D['u_eco'] = pre + 'ecosystem/'; D['l_eco'] = 'Экосистема' if D is RU else 'Ecosystem'
     D['l_audit'] = AUDIT[D['lang']]['crumb']; D['l_routing'] = ROUTING[D['lang']]['crumb']
+import blog as _BL
+for D in (RU, EN): D['latest'] = _BL.latest_html(D['lang'], D)
 
 import json, hashlib, glob, datetime
 def jsonld(d):
@@ -237,6 +239,14 @@ for f in ['site.css', 'site.js', 'hero.js']:
 for f in ['gsap.min.js', 'ScrollTrigger.min.js', 'three.min.js']:  # vendored libs (three.min.js already patched)
     shutil.copy(ROOT + '/src/vendor/' + f, OUT + '/assets/' + f)
 for f in glob.glob(ROOT + '/src/static/*'): shutil.copy(f, OUT + '/' + os.path.basename(f))
+try:
+    sys.path.insert(0, ROOT + '/tools'); import og as _OG
+    _n = _OG.generate()
+    if _n: print('og images generated:', _n)
+except Exception as _e:
+    print('WARNING: og images not generated (' + type(_e).__name__ + '); articles without one use the default preview')
+os.makedirs(OUT + '/og', exist_ok=True)
+for f in glob.glob(ROOT + '/src/og/*.jpg'): shutil.copy(f, OUT + '/og/' + os.path.basename(f))
 today = datetime.date.today().isoformat()
 open(OUT + '/robots.txt', 'w').write('User-agent: *\nAllow: /\nDisallow: /tg/\n\nSitemap: https://guropsp.com/sitemap.xml\n')
 import blog as BL
@@ -259,6 +269,15 @@ BLOG_URLS = [(BL.hub_url(l), (BL.hub_url('en'), BL.hub_url('ru'))) for l in ('en
 for A in BL.ARTICLES:
     BLOG_URLS += [(BL.art_url(A, l), (BL.art_url(A, 'en'), BL.art_url(A, 'ru')), A['updated']) for l in ('en', 'ru')]
 open(OUT + '/' + INDEXNOW_KEY + '.txt', 'w').write(INDEXNOW_KEY)
+# llms.txt: a plain summary for AI search engines and assistants (https://llmstxt.org)
+_l = ['# GURO PSP', '', '> Payments audit and optimisation for iGaming operators: cashier, PSPs, gateway, smart routing and cascading, monitoring and alerts. Independent: we do not sell PSPs or orchestrators.', '',
+      'Markets: Tier 1 card traffic (EU, UK, Canada, Australia / New Zealand), Tier 2-3 on request. Contact: https://t.me/GuroPSPbot', '',
+      'Pricing: intro call free; consultation EUR 100-150 per hour; initial Tier 1 audit from EUR 600; full optimisation cycle typically EUR 3,000-4,000; retainer from EUR 1,000 per month.', '',
+      '## Services', '- [Payments audit](https://guropsp.com/services/payments-audit/): cashier, PSP, gateway and analytics audit',
+      '- [Routing and cascading](https://guropsp.com/services/routing-cascading/): smart routing, cascades, decline-code handling', '', '## Articles']
+_l += [f"- [{A['en']['title']}]({BL.art_url(A, 'en')}): {A['en']['desc']}" for A in sorted(BL.ARTICLES, key=lambda x: x['date'], reverse=True)]
+_l += ['', '## Optional', '- [Russian version](https://guropsp.com/ru/)', '- [GURO ecosystem](https://guropsp.com/ecosystem/)', '']
+open(OUT + '/llms.txt', 'w', encoding='utf-8').write('\n'.join(_l))
 open(OUT + '/404.html', 'w', encoding='utf-8').write(open(ROOT + '/src/404.html', encoding='utf-8').read().replace('{{ver}}', VER))
 altx = lambda en, ru: '<xhtml:link rel="alternate" hreflang="en" href="%s"/><xhtml:link rel="alternate" hreflang="ru" href="%s"/><xhtml:link rel="alternate" hreflang="x-default" href="%s"/>' % (en, ru, en)
 URLS = [(u, ('https://guropsp.com/', 'https://guropsp.com/ru/')) for u in ['https://guropsp.com/', 'https://guropsp.com/ru/']] + SVC_URLS + ECO_URLS + BLOG_URLS
@@ -283,6 +302,28 @@ ErrorDocument 404 /404.html
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 ''')
+# Self-hosted fonts (no third-party request on the critical path). Needs 'woff2' in ALLOWED of the server's
+# deploy/pull.php plus woff2 caching in .htaccess, so it stays off until the server accepts .woff2 files.
+SELF_FONTS = False
+if SELF_FONTS:
+    FAM = {'unbounded': 'Unbounded', 'onest': 'Onest', 'jetbrains-mono': 'JetBrains Mono'}
+    RNG = {'latin': 'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD',
+           'latin-ext': 'U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF',
+           'cyrillic': 'U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116', 'cyrillic-ext': 'U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F'}
+    os.makedirs(OUT + '/fonts', exist_ok=True)
+    css = ''
+    for f in sorted(glob.glob(ROOT + '/src/fonts/*.woff2')):
+        n = os.path.basename(f); shutil.copy(f, OUT + '/fonts/' + n)
+        m = re.match(r'(unbounded|onest|jetbrains-mono)-(latin-ext|latin|cyrillic-ext|cyrillic)-(\d+)-normal\.woff2', n)
+        if m: css += "@font-face{font-family:'%s';font-style:normal;font-weight:%s;font-display:swap;src:url(/fonts/%s) format('woff2');unicode-range:%s}\n" % (FAM[m[1]], m[3], n, RNG[m[2]])
+    open(OUT + '/assets/fonts.css', 'w').write(css)
+    GF = re.compile(r'<link rel="preconnect" href="https://fonts\.googleapis\.com">\s*<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>\s*<link href="https://fonts\.googleapis\.com/css2\?[^"]*" rel="stylesheet">')
+    for f in glob.glob(OUT + '/**/*.html', recursive=True):
+        t = open(f, encoding='utf-8').read()
+        sub = 'cyrillic' if '<html lang="ru"' in t else 'latin'
+        tags = ''.join('<link rel="preload" href="/fonts/%s-%s-%s-normal.woff2" as="font" type="font/woff2" crossorigin>' % (fam, sub, w) for fam, w in (('unbounded', 600), ('onest', 400)))
+        t2 = GF.sub(tags + '<link rel="stylesheet" href="/assets/fonts.css?v=' + VER + '">', t)
+        if t2 != t: open(f, 'w', encoding='utf-8').write(t2)
 en_txt = open(OUT + '/index.html', encoding='utf-8').read() + ''.join(open(OUT + '/services/' + P['slug'] + '/index.html', encoding='utf-8').read() for P in SV.PAGES) + open(OUT + '/ecosystem/index.html', encoding='utf-8').read()
 print('Cyrillic in EN:', sorted(set(re.findall(r'[А-Яа-яЁё]+', en_txt))))
 open(OUT + '/VERSION', 'w').write(VER + '-' + datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%d%H%M%S') + '\n')

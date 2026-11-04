@@ -3,6 +3,29 @@ import json, re, datetime, html as H
 from blog_content import ARTICLES, BLOG_UI
 from services_content import PAGES as SVC
 from layout import chrome_top, chrome_bottom, prefix, redirect_js, SITE, e
+import os
+OG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'og')
+
+
+def og_url(a, lang):
+    """Per-article social preview if generated (tools/og.py), else the site default."""
+    f = f"{a['slug']}-{lang}.jpg"
+    return f'{SITE}/og/{f}' if os.path.exists(os.path.join(OG_DIR, f)) else f'{SITE}/og-{lang}.jpg'
+
+
+def latest_html(lang, D, n=3):
+    """'From the blog' block for the home page: passes link weight from the landing to the newest articles."""
+    U = BLOG_UI[lang]
+    items = sorted(ARTICLES, key=lambda x: x['date'], reverse=True)[:n]
+    h = 'Из блога' if lang == 'ru' else 'From the blog'
+    sub = 'Разбираем, где теряются депозиты и как это устроено.' if lang == 'ru' else 'Where deposits get lost, and how it all works.'
+    more = 'Все статьи' if lang == 'ru' else 'All articles'
+    cards = ''.join(card(a, lang, U) for a in items)
+    return (f'<section class="sec sec-line home-blog" id="blog" aria-labelledby="home-blog-h"><div class="wrap">'
+            f'<div class="sec-head"><h2 class="display" id="home-blog-h" data-words>{e(h)}</h2><p class="sub" data-reveal>{e(sub)}</p></div>'
+            f'<div class="rels posts">{cards}</div>'
+            f'<div class="ctas ctas-c" data-reveal><a href="{prefix(lang)}blog/" class="btn btn-lg btn-ghost magnetic" data-cursor="{e(U["read"])}"><span>{e(more)}</span></a></div>'
+            f'</div></section>')
 
 MONTHS_RU = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
 
@@ -73,7 +96,7 @@ def render_article(a, lang, D, ver):
     g = [org(),
          {'@type': 'BlogPosting', '@id': url + '#article', 'headline': C['title'], 'description': C['desc'], 'inLanguage': lang,
           'datePublished': a['date'], 'dateModified': a['updated'], 'mainEntityOfPage': url, 'url': url,
-          'image': {'@type': 'ImageObject', 'url': f'{SITE}/og-{lang}.jpg', 'width': 1200, 'height': 630},
+          'image': {'@type': 'ImageObject', 'url': og_url(a, lang), 'width': 1200, 'height': 630},
           'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'wordCount': words,
           'articleSection': C['tag'], 'isPartOf': {'@id': hub_url(lang) + '#blog'},
           'about': {'@id': SITE + prefix(lang) + 'services/' + a['service'] + '/#service'}},
@@ -133,7 +156,7 @@ def render_article(a, lang, D, ver):
 </main>
 '''
     return chrome_top(lang, D, ver, C['seo_title'], C['desc'], C['title'], url, alt_en, alt_ru, ld_dump(g), redirect,
-                      'blog-' + a['slug'].split('-')[0], cur='blog', og_type='article', extra_head=extra) + body + chrome_bottom(lang, D, ver)
+                      'blog-' + a['slug'].split('-')[0], cur='blog', og_type='article', extra_head=extra, og_image=og_url(a, lang)) + body + chrome_bottom(lang, D, ver)
 
 
 def card(a, lang, U):

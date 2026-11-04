@@ -1,0 +1,23 @@
+# GURO PSP
+
+> Payments audit and optimisation for iGaming operators: cashier, PSPs, gateway, smart routing and cascading, monitoring and alerts. Independent: we do not sell PSPs or orchestrators.
+
+Markets: Tier 1 card traffic (EU, UK, Canada, Australia / New Zealand), Tier 2-3 on request. Contact: https://t.me/GuroPSPbot
+
+Pricing: intro call free; consultation EUR 100-150 per hour; initial Tier 1 audit from EUR 600; full optimisation cycle typically EUR 3,000-4,000; retainer from EUR 1,000 per month.
+
+## Services
+- [Payments audit](https://guropsp.com/services/payments-audit/): cashier, PSP, gateway and analytics audit
+- [Routing and cascading](https://guropsp.com/services/routing-cascading/): smart routing, cascades, decline-code handling
+
+## Articles
+- [GEO Analysis for iGaming Payments](https://guropsp.com/blog/igaming-geo-payment-analysis/): How to analyse a country before launching casino payments: regulation, methods by region, competitor benchmarking, cashier snapshots and finding providers via redirects.
+- [How to Choose a PSP for iGaming: What to Understand Before Signing](https://guropsp.com/blog/how-to-choose-psp-igaming/): Why choosing the wrong payment provider for a casino is expensive: PSP types, hidden costs, the contract, technical details and why you shouldn’t compare on rates.
+- [What Is Smart Payment Routing](https://guropsp.com/blog/smart-routing-igaming/): Smart routing for iGaming deposits in plain words: how it differs from basic routing and cascading, what it’s made of and why you can’t copy it from another operator.
+- [Deposit Approval Rates in iGaming: Where the Money Is Really Lost](https://guropsp.com/blog/improve-deposit-approval-rate/): Why deposit approval rates in iGaming are almost always lower than they could be, where money is lost — from the cashier to the issuing bank — and why it’s hard to fix piecemeal.
+- [Card Decline Codes: Why You Can’t Retry Everything](https://guropsp.com/blog/card-decline-codes-cascading/): Why uncontrolled cascading of declines hurts an iGaming operator: soft and hard declines, Visa and Mastercard retry rules, and why every project’s cascade matrix is different.
+- [Casino Cashier Audit: 10 Questions Worth Answering Honestly](https://guropsp.com/blog/casino-cashier-audit-checklist/): A short self-check for an iGaming cashier: 10 questions about the player path, methods, providers, cascading and analytics that show whether your cashier is losing deposits.
+
+## Optional
+- [Russian version](https://guropsp.com/ru/)
+- [GURO ecosystem](https://guropsp.com/ecosystem/)

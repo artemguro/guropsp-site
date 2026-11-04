@@ -19,6 +19,9 @@ run `python3 build.py`, commit both `src/` and `site/`, push to `main`. That's t
    - 2 short FAQ items. `seo_title` ends with ` | GURO PSP`, ≤ ~70 chars before it. `desc` 140–160 chars.
 2. `python3 build.py` — must print `built`; EN pages must contain no Cyrillic except the "Русская версия" switch label.
 3. Optionally render-check with Playwright (`python3 -m http.server` in `site/`).
+   - `build.py` auto-generates the article's social preview `src/og/<slug>-<lang>.jpg` (tools/og.py, needs Playwright).
+     If it prints a WARNING instead, run `python3 tools/og.py` and rebuild. Commit `src/og/` too.
+   - The home page "From the blog" block and `site/llms.txt` pick up new articles automatically.
 4. Commit and push.
 
 ## Content rules (important — articles are published without manual review)
@@ -61,3 +64,9 @@ Already covered: approval rate, decline codes, cashier self-check, GEO analysis,
 ## Do not touch
 - `/tg/` on the server (Telegram bot webhook) and anything outside `site/`.
 - `site/yandex_8a841c9510d8c0d4.html` and `site/5f3c9e2a7b1d4c8e9a6f0b2d3c4e5f61.txt` (search engine verification / IndexNow key).
+
+## Technical SEO (Nov 2026)
+- Per-article OG images in `src/og/`, home "From the blog" block (3 newest), `llms.txt`, View Transitions (CSS), sr-only copies for split-text animations.
+- 3D hero falls back to the SVG version on software WebGL (no GPU); 30 fps / no MSAA on weak or touch devices.
+- Self-hosted fonts are ready in `src/fonts/` behind `SELF_FONTS` in build.py. Turn it on only after 'woff2' is added to ALLOWED
+  in the server's deploy/pull.php (and woff2 caching in .htaccess); otherwise fonts would 404.

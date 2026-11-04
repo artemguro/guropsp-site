@@ -8,9 +8,20 @@ var THREE = window.THREE;
 const host = document.getElementById('scene');
 const canvas = document.getElementById('flow');
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// weak or touch devices: cheaper rendering (no MSAA, lower pixel ratio, 30 fps)
+const lite = window.matchMedia('(pointer: coarse)').matches || (navigator.hardwareConcurrency || 8) <= 4 ||
+  (navigator.deviceMemory || 8) <= 4 || !!(navigator.connection && navigator.connection.saveData);
 
+// WebGL with a real GPU only: software renderers (VMs, no-GPU PCs, headless) get the light SVG version instead
 function webglOK() {
-  try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) { return false; }
+  try {
+    const c = document.createElement('canvas'), gl = c.getContext('webgl2') || c.getContext('webgl');
+    if (!gl) return false;
+    const ext = gl.getExtension('WEBGL_debug_renderer_info');
+    const r = ext ? String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)) : '';
+    const lose = gl.getExtension('WEBGL_lose_context'); if (lose) lose.loseContext();
+    return !/swiftshader|llvmpipe|softpipe|software|basic render/i.test(r);
+  } catch (e) { return false; }
 }
 var ok = false;
 if (host && canvas && THREE && webglOK()) {
@@ -19,7 +30,7 @@ if (host && canvas && THREE && webglOK()) {
 if (host && !ok) fallback2D();
 
 function init() {
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: !lite, alpha: true, powerPreference: lite ? 'low-power' : 'high-performance' });
   renderer.setClearColor(0x000000, 0);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   const scene = new THREE.Scene();
@@ -249,7 +260,7 @@ function init() {
   }
   function layout() {
     cw = host.clientWidth; ch = host.clientHeight;
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, lite ? 1.25 : 2));
     renderer.setSize(cw, ch, false);
     camera.aspect = cw / ch; camera.updateProjectionMatrix();
     dist = 8;
@@ -281,7 +292,9 @@ function init() {
   let visible = true, last = performance.now(), spawnIn = 0.3, time = 0;
   new IntersectionObserver(([en]) => { visible = en.isIntersecting; }, { threshold: 0 }).observe(host);
 
+  const minStep = lite ? 1 / 30 : 0;
   function frame(now) {
+    if (minStep && (now - last) / 1000 < minStep) { requestAnimationFrame(frame); return; }
     const dt = Math.min(0.05, (now - last) / 1000); last = now;
     if (visible && !document.hidden) {
       time += dt;
