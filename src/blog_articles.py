@@ -466,4 +466,74 @@ CHECKLIST = {
  ),
 }
 
-ARTICLES = [GEO, PSP, SMART_ROUTING, APPROVAL, DECLINES, CHECKLIST]
+ORCHESTRATOR = {
+ 'slug': 'payment-orchestrator-vs-in-house-gateway', 'service': 'payments-audit', 'date': '2026-11-04', 'updated': '2026-11-04',
+ 'ru': dict(
+  title='Платёжный оркестратор или свой шлюз: в чём реальная разница',
+  seo_title='Платёжный оркестратор или свой шлюз в iGaming | GURO PSP',
+  desc='Оркестратор или собственный платёжный шлюз для казино: чем они на самом деле отличаются, из чего складывается стоимость и какие решения потом дорого менять.',
+  tag='Инфраструктура', read='5 мин',
+  lead='Вопрос «брать оркестратор или писать свой шлюз» обычно обсуждают как выбор подрядчика. На деле это решение о том, кто будет управлять вашими депозитами, данными и стоимостью платежей ближайшие годы. Разбираем, в чём разница и где чаще всего ошибаются.',
+  body=[
+   ('h2', 'what', 'О чём вообще речь'),
+   ('p', 'И оркестратор, и собственный шлюз решают одну задачу: подключить к кассе несколько провайдеров и управлять тем, куда уходит каждый депозит. **Оркестратор** — это внешняя платформа: одна интеграция с ней даёт доступ к её коннекторам к PSP, роутингу, каскадам и отчётности. **Свой шлюз** — это ваш слой между кассой и провайдерами: интеграции, логику и данные вы строите и поддерживаете сами.'),
+   ('p', 'Снаружи оба варианта выглядят одинаково — у игрока есть кнопка «Депозит». Разница проявляется позже: в скорости изменений, в контроле над данными и в том, сколько стоит каждый успешный платёж.'),
+   ('h2', 'tradeoff', 'Главный компромисс: скорость против контроля'),
+   ('p', 'Оркестратор позволяет запуститься быстро и без своей платёжной команды. Но вы работаете в рамках его возможностей: какие провайдеры подключены, насколько гибкие правила роутинга, какие данные об отказах видны. Свой шлюз даёт полный контроль над логикой и данными, но требует людей, времени и постоянной поддержки — API провайдеров меняются, а каждый сбой интеграции становится вашей проблемой.'),
+   ('h2', 'cost', 'Сколько это стоит на самом деле'),
+   ('p', 'У оркестратора стоимость обычно привязана к транзакциям и растёт вместе с объёмом, поверх комиссий самих PSP. У своего шлюза основная стоимость — команда, поддержка интеграций, мониторинг и требования безопасности к работе с карточными данными. Сравнивать стоит не цену лицензии с зарплатой разработчика, а полную стоимость успешного депозита на вашем объёме — сейчас и через год.'),
+   ('cta', 'payments-audit'),
+   ('h2', 'hidden', 'Что видно только после запуска'),
+   ('ul', [
+     '**Карточные данные и токены.** Где они хранятся и можно ли забрать их с собой при уходе. Без этого смена платформы может означать, что игрокам придётся заново вводить карты.',
+     '**Покрытие провайдеров.** Есть ли коннекторы именно к вашим PSP и методам в ваших ГЕО и сколько времени занимает подключение нового.',
+     '**Глубина роутинга.** Правила «страна → провайдер» есть почти везде. BIN-роутинг, sticky, каскады с учётом кодов отказа и требований провайдеров — далеко не везде.',
+     '**Данные об отказах.** Видите ли вы исходные коды отказов провайдера или только обобщённый статус. От этого зависит, сможете ли вы вообще управлять проходимостью.',
+     '**Новая точка отказа.** Если оркестратор недоступен, касса стоит целиком — даже когда все провайдеры работают.',
+   ]),
+   ('h2', 'hybrid', 'Это не выбор «раз и навсегда»'),
+   ('p', 'Нередко операторы начинают на оркестраторе, а с ростом объёмов переносят часть логики или ключевые ГЕО в свой шлюз — или используют оба. Правильный вариант зависит от объёмов, числа провайдеров, рынков и того, есть ли у вас люди, которые будут этим заниматься. Ошибка же стоит дорого: миграция платёжной инфраструктуры — это месяцы работы и риск для депозитов.'),
+   ('p', 'Мы помогаем оценить варианты со стороны оператора: что подходит под ваши ГЕО, провайдеров и объёмы, и что спросить у платформы до подписания. Начать можно с бесплатного интро-звонка.'),
+   ('p', 'Мы не продаём оркестраторы и PSP и не получаем от них комиссий — выбор всегда остаётся за вами.'),
+  ],
+  faq=[
+   ('Что выбрать новому проекту — оркестратор или свой шлюз?', 'Чаще всего новому проекту быстрее и дешевле стартовать на внешней платформе. Но условия по данным, токенам и выходу из договора стоит проверить до подписания — потом их не изменить.'),
+   ('Оркестратор сам поднимет проходимость?', 'Нет. Он даёт инструменты: роутинг, каскады, отчёты. Проходимость растёт, когда эти инструменты настроены на данных именно вашего трафика.'),
+  ],
+ ),
+ 'en': dict(
+  title='Payment Orchestrator vs In-House Gateway: What Really Differs',
+  seo_title='Payment Orchestrator vs In-House Gateway for iGaming | GURO PSP',
+  desc='Orchestrator or your own payment gateway for a casino: what really differs, what each costs and which early decisions become very expensive to change later.',
+  tag='Infrastructure', read='5 min',
+  lead='“Orchestrator or our own gateway?” is usually discussed like choosing a vendor. In reality it decides who controls your deposits, your data and your payment costs for years. Here is what really differs and where operators most often go wrong.',
+  body=[
+   ('h2', 'what', 'What we are comparing'),
+   ('p', 'An orchestrator and an in-house gateway solve the same problem: connecting several providers to the cashier and controlling where each deposit goes. An **orchestrator** is an external platform: one integration gives you its PSP connectors, routing, cascading and reporting. An **in-house gateway** is your own layer between the cashier and the providers: you build and maintain the integrations, the logic and the data yourself.'),
+   ('p', 'From the outside both look the same — the player sees a Deposit button. The difference shows later: in how fast you can change things, in control over data and in what each successful payment costs.'),
+   ('h2', 'tradeoff', 'The core trade-off: speed vs control'),
+   ('p', 'An orchestrator lets you launch quickly without your own payments team. But you work within its limits: which providers are connected, how flexible the routing rules are, what decline data you can see. Your own gateway gives full control over logic and data, but it needs people, time and ongoing maintenance — provider APIs change, and every integration failure becomes your problem.'),
+   ('h2', 'cost', 'What it really costs'),
+   ('p', 'An orchestrator is usually priced per transaction, so its cost grows with volume, on top of the PSPs’ own fees. With an in-house gateway the main cost is the team, integration maintenance, monitoring and the security requirements for handling card data. Don’t compare a licence fee with a developer’s salary — compare the full cost of a successful deposit at your volume, now and a year from now.'),
+   ('cta', 'payments-audit'),
+   ('h2', 'hidden', 'What you only see after launch'),
+   ('ul', [
+     '**Card data and tokens.** Where they are stored and whether you can take them with you when you leave. Without that, switching platforms can mean players have to re-enter their cards.',
+     '**Provider coverage.** Whether there are connectors to your PSPs and methods in your GEOs, and how long adding a new one takes.',
+     '**Routing depth.** “Country → provider” rules exist almost everywhere. BIN routing, sticky routing and cascades that respect decline codes and provider requirements are far less common.',
+     '**Decline data.** Whether you see the provider’s original decline codes or only a generic status. This decides whether you can manage approval rates at all.',
+     '**A new point of failure.** If the orchestrator is down, the whole cashier stops — even when every provider is working.',
+   ]),
+   ('h2', 'hybrid', 'It is not a once-and-for-all choice'),
+   ('p', 'Operators often start on an orchestrator and, as volumes grow, move part of the logic or key GEOs to their own gateway — or run both. The right setup depends on volume, the number of providers, your markets and whether you have people to run it. Getting it wrong is expensive: migrating payment infrastructure takes months and puts deposits at risk.'),
+   ('p', 'We help you weigh the options from the operator’s side: what fits your GEOs, providers and volumes, and what to ask a platform before signing. You can start with a free intro call.'),
+   ('p', 'We don’t sell orchestrators or PSPs and take no commissions from them — the choice always stays with you.'),
+  ],
+  faq=[
+   ('What should a new project choose — an orchestrator or its own gateway?', 'Most new projects launch faster and cheaper on an external platform. But check the terms on data, tokens and exiting the contract before signing — you can’t change them later.'),
+   ('Will an orchestrator raise approval rates by itself?', 'No. It gives you tools: routing, cascades, reports. Approval rates go up when those tools are tuned on your own traffic data.'),
+  ],
+ ),
+}
+
+ARTICLES = [GEO, PSP, SMART_ROUTING, APPROVAL, DECLINES, CHECKLIST, ORCHESTRATOR]

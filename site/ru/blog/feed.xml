@@ -6,7 +6,15 @@
   <atom:link href="https://guropsp.com/ru/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи GURO PSP о платежах в iGaming: как повысить проходимость депозитов, настроить роутинг и каскадинг, работать с кодами отказа и провайдерами.</description>
   <language>ru</language>
-  <lastBuildDate>Sun, 01 Nov 2026 08:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 04 Nov 2026 08:00:00 +0000</lastBuildDate>
+  <item>
+    <title>Платёжный оркестратор или свой шлюз: в чём реальная разница</title>
+    <link>https://guropsp.com/ru/blog/payment-orchestrator-vs-in-house-gateway/</link>
+    <guid isPermaLink="true">https://guropsp.com/ru/blog/payment-orchestrator-vs-in-house-gateway/</guid>
+    <pubDate>Wed, 04 Nov 2026 08:00:00 +0000</pubDate>
+    <category>Инфраструктура</category>
+    <description>Оркестратор или собственный платёжный шлюз для казино: чем они на самом деле отличаются, из чего складывается стоимость и какие решения потом дорого менять.</description>
+  </item>
   <item>
     <title>Анализ ГЕО с точки зрения платёжных решений</title>
     <link>https://guropsp.com/ru/blog/igaming-geo-payment-analysis/</link>
