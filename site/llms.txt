@@ -11,6 +11,7 @@ Pricing: intro call free; consultation EUR 100-150 per hour; initial Tier 1 audi
 - [Routing and cascading](https://guropsp.com/services/routing-cascading/): smart routing, cascades, decline-code handling
 
 ## Articles
+- [Approval Rate, Conversion or Cost per Deposit: What to Measure](https://guropsp.com/blog/payment-metrics-approval-rate-vs-conversion/): Approval rate, player deposit conversion and cost per successful deposit: why payment teams watch the wrong number and how it hides real losses in the cashier.
 - [Payment Orchestrator vs In-House Gateway: What Really Differs](https://guropsp.com/blog/payment-orchestrator-vs-in-house-gateway/): Orchestrator or your own payment gateway for a casino: what really differs, what each costs and which early decisions become very expensive to change later.
 - [GEO Analysis for iGaming Payments](https://guropsp.com/blog/igaming-geo-payment-analysis/): How to analyse a country before launching casino payments: regulation, methods by region, competitor benchmarking, cashier snapshots and finding providers via redirects.
 - [How to Choose a PSP for iGaming: What to Understand Before Signing](https://guropsp.com/blog/how-to-choose-psp-igaming/): Why choosing the wrong payment provider for a casino is expensive: PSP types, hidden costs, the contract, technical details and why you shouldn’t compare on rates.

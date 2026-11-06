@@ -536,4 +536,92 @@ ORCHESTRATOR = {
  ),
 }
 
-ARTICLES = [GEO, PSP, SMART_ROUTING, APPROVAL, DECLINES, CHECKLIST, ORCHESTRATOR]
+METRICS = {
+ 'slug': 'payment-metrics-approval-rate-vs-conversion', 'service': 'payments-audit', 'date': '2026-11-06', 'updated': '2026-11-06',
+ 'ru': dict(
+  title='Approval rate, конверсия или стоимость депозита: что на самом деле мерить',
+  seo_title='Платёжные метрики казино: approval rate и конверсия | GURO PSP',
+  desc='Approval rate, конверсия игрока в депозит и стоимость успешного депозита: почему команды смотрят не на ту цифру и как это скрывает реальные потери в кассе.',
+  tag='Метрики', read='5 мин',
+  lead='Почти в каждой команде есть цифра, по которой судят о платежах, — обычно approval rate. Проблема в том, что одна метрика отвечает только на один вопрос. Разбираем, чем отличаются проходимость, конверсия игрока и стоимость успешного депозита и почему ориентир на одну из них часто прячет реальные потери.',
+  body=[
+   ('h2', 'three', 'Три метрики — три разных вопроса'),
+   ('p', 'Платёжная команда, продукт и финансы часто говорят «конверсия» и имеют в виду разное. Пока определения не совпадают, спор о том, стало лучше или хуже, ни к чему не приводит.'),
+   ('table', ['Метрика', 'На какой вопрос отвечает', 'Чего не видит'], [
+     ['Approval rate', 'Какую долю отправленных платежей одобрили провайдер и эмитент', 'Игроков, которые бросили кассу до отправки, и цену каждой попытки'],
+     ['Конверсия игрока в депозит', 'Какая доля игроков, начавших депозит, в итоге внесла деньги', 'Почему именно не прошло и сколько стоил успех'],
+     ['Стоимость успешного депозита', 'Сколько вы реально платите за каждый зачисленный депозит', 'Сколько игроков вы потеряли по дороге'],
+   ]),
+   ('h2', 'approval', 'Approval rate: зависит от того, что в знаменателе'),
+   ('p', 'Одна и та же касса может показывать очень разный approval rate в зависимости от того, что считать попыткой. Если каждый ретрай и каждый шаг каскада — отдельная транзакция, процент падает. Если считать только финальный результат намерения игрока, он растёт. Обе цифры «правильные», но сравнивать их между собой, между провайдерами или между месяцами с разной логикой каскадов нельзя.'),
+   ('p', 'Есть и обратная ловушка. Высокий approval rate легко получить, если часть игроков вообще не доходит до отправки платежа: нужного метода нет, форма не работает на мобильном, 3DS обрывается. Эти потери в approval rate не попадают совсем.'),
+   ('h2', 'conversion', 'Конверсия игрока: ближе всего к выручке'),
+   ('p', 'Конверсия от нажатия «Депозит» до зачисления денег показывает то, что важно бизнесу: сколько игроков смогли заплатить. Сюда входит всё — выбор метода, поля формы, 3DS, ответы провайдеров, понятность сообщений об ошибке. Но это итоговая цифра: она скажет, что стало хуже, и не скажет, где сломалось. Для этого нужна разбивка по шагам, ГЕО, методам, провайдерам, BIN и новым и повторным игрокам.'),
+   ('p', 'Важно и то, как считается успех. Если игрок получил отказ из-за недостатка средств, правильный ответ — понятное сообщение и выбор за ним, а не попытки «дожать» платёж. Метрика, которая поощряет агрессивные повторы, работает против игрока и против вас.'),
+   ('cta', 'payments-audit'),
+   ('h2', 'cost', 'Стоимость успешного депозита: где прячутся деньги'),
+   ('p', 'Ставка провайдера в договоре — лишь часть цены. Реальная стоимость зачисленного депозита складывается из комиссий за успешные и иногда за неуспешные попытки, фиксированных сборов, конвертации валют, чарджбэков и их обработки, резервов и задержек выплат. Провайдер с низкой ставкой и слабой проходимостью в вашем ГЕО может обходиться дороже, чем более дорогой, но стабильный.'),
+   ('p', 'Повторы тоже стоят денег. У карточных схем есть программы, по которым за чрезмерные повторные попытки по уже отклонённым транзакциям могут взиматься дополнительные сборы. Каскад, который поднимает approval rate ценой лишних попыток, может ухудшать и стоимость, и отношения с эквайером.'),
+   ('h2', 'symptoms', 'Признаки того, что вы смотрите не на ту цифру'),
+   ('ul', [
+     '**Approval rate растёт, а депозитов не больше.** Скорее всего, изменился знаменатель или потери сместились до отправки платежа.',
+     '**Платёжная команда и продукт приносят разные цифры** по одному периоду и обе правы — в своих определениях.',
+     '**Провайдера выбирают по ставке**, не считая полную стоимость успешного депозита по ГЕО и методам.',
+     '**Средний показатель выглядит нормально**, а в отдельном ГЕО или у одного провайдера проходимость давно просела.',
+     '**Отчёт показывает обобщённый статус «declined»** без исходных кодов отказа — и управлять проходимостью нечем.',
+   ]),
+   ('h2', 'together', 'Метрики работают только вместе'),
+   ('p', 'Ни одна из трёх цифр не заменяет остальные. Approval rate показывает здоровье маршрутов и провайдеров, конверсия — то, сколько игроков в итоге заплатили, стоимость депозита — сколько это стоило. Чтобы связать их, нужно единое событие «намерение депозита», согласованные определения для всех команд и данные, которые сводят кассу, провайдеров и финансы. Именно здесь обычно и выясняется, что часть цифр раньше считалась по-разному.'),
+   ('p', 'На аудите кассы мы сводим эти метрики в одну картину со стороны оператора и показываем, где теряются игроки и деньги. Начать можно с бесплатного интро-звонка.'),
+   ('p', 'Мы не продаём PSP и не получаем комиссий от провайдеров — выбор всегда остаётся за вами.'),
+  ],
+  faq=[
+   ('Какой approval rate считается нормальным?', 'Единой нормы нет: он сильно зависит от ГЕО, методов, BIN, доли новых игроков и того, как считаются попытки. Сравнивать имеет смысл свой трафик с самим собой при одинаковой методике.'),
+   ('Что важнее — approval rate или конверсия?', 'Для бизнеса ближе конверсия игрока в депозит и стоимость успешного депозита. Approval rate нужен, чтобы понимать, где именно возникают потери.'),
+  ],
+ ),
+ 'en': dict(
+  title='Approval Rate, Conversion or Cost per Deposit: What to Measure',
+  seo_title='Casino Payment Metrics: Approval Rate vs Conversion | GURO PSP',
+  desc='Approval rate, player deposit conversion and cost per successful deposit: why payment teams watch the wrong number and how it hides real losses in the cashier.',
+  tag='Metrics', read='5 min',
+  lead='Almost every team has one number it judges payments by — usually approval rate. The problem is that one metric answers only one question. Here is how approval rate, player conversion and cost per successful deposit differ, and why relying on just one of them often hides real losses.',
+  body=[
+   ('h2', 'three', 'Three metrics, three different questions'),
+   ('p', 'The payments team, product and finance often all say “conversion” and mean different things. Until the definitions match, arguing about whether things got better or worse goes nowhere.'),
+   ('table', ['Metric', 'Question it answers', 'What it misses'], [
+     ['Approval rate', 'What share of submitted payments the provider and issuer approved', 'Players who left the cashier before submitting, and the cost of each attempt'],
+     ['Player deposit conversion', 'What share of players who started a deposit actually paid', 'Why exactly it failed and what success cost'],
+     ['Cost per successful deposit', 'What you really pay for each credited deposit', 'How many players you lost on the way'],
+   ]),
+   ('h2', 'approval', 'Approval rate depends on the denominator'),
+   ('p', 'The same cashier can show very different approval rates depending on what counts as an attempt. If every retry and every cascade step is a separate transaction, the rate drops. If you count only the final outcome of the player’s intent, it rises. Both numbers are “correct”, but you can’t compare them with each other, across providers or across months with different cascade logic.'),
+   ('p', 'There is the opposite trap too. A high approval rate is easy to get when some players never reach the submit step: the method they need is missing, the form breaks on mobile, 3DS drops out. Those losses never show up in approval rate at all.'),
+   ('h2', 'conversion', 'Player conversion: closest to revenue'),
+   ('p', 'Conversion from pressing “Deposit” to money being credited shows what the business cares about: how many players managed to pay. It includes everything — method choice, form fields, 3DS, provider responses, clear error messages. But it is an outcome number: it tells you things got worse, not where they broke. For that you need a breakdown by step, GEO, method, provider, BIN and new vs returning players.'),
+   ('p', 'How you define success matters as well. If a player is declined for insufficient funds, the right response is a clear message and the player’s own choice, not attempts to push the payment through. A metric that rewards aggressive retries works against the player and against you.'),
+   ('cta', 'payments-audit'),
+   ('h2', 'cost', 'Cost per successful deposit: where the money hides'),
+   ('p', 'The rate in the provider contract is only part of the price. The real cost of a credited deposit includes fees on successful and sometimes failed attempts, fixed fees, currency conversion, chargebacks and their handling, reserves and settlement delays. A provider with a low rate and weak approval in your GEO can cost more than a pricier but stable one.'),
+   ('p', 'Retries cost money too. Card schemes run programmes under which excessive reattempts on already declined transactions can incur extra fees. A cascade that lifts approval rate through extra attempts can make both cost and your relationship with the acquirer worse.'),
+   ('h2', 'symptoms', 'Signs you are watching the wrong number'),
+   ('ul', [
+     '**Approval rate goes up, but deposits don’t.** Most likely the denominator changed, or losses moved to before the payment is submitted.',
+     '**Payments and product bring different numbers** for the same period, and both are right — by their own definitions.',
+     '**Providers are chosen on rate**, without counting the full cost of a successful deposit by GEO and method.',
+     '**The average looks fine**, while approval in one GEO or with one provider dropped a while ago.',
+     '**Reports show a generic “declined” status** without the original decline codes — so there is nothing to manage approval with.',
+   ]),
+   ('h2', 'together', 'The metrics only work together'),
+   ('p', 'None of the three numbers replaces the others. Approval rate shows the health of routes and providers, conversion shows how many players ended up paying, cost per deposit shows what it cost. Connecting them takes a single “deposit intent” event, shared definitions across teams and data that joins the cashier, providers and finance. This is usually where it turns out some numbers were being counted differently all along.'),
+   ('p', 'In a cashier audit we bring these metrics into one operator-side picture and show where players and money are lost. You can start with a free intro call.'),
+   ('p', 'We don’t sell PSPs or take commissions from providers — the choice always stays with you.'),
+  ],
+  faq=[
+   ('What is a normal approval rate?', 'There is no single benchmark: it depends heavily on GEO, methods, BINs, the share of new players and how attempts are counted. The meaningful comparison is your own traffic against itself, using the same method.'),
+   ('Which matters more — approval rate or conversion?', 'For the business, player deposit conversion and cost per successful deposit are closer to what counts. Approval rate tells you where exactly the losses happen.'),
+  ],
+ ),
+}
+
+ARTICLES = [GEO, PSP, SMART_ROUTING, APPROVAL, DECLINES, CHECKLIST, ORCHESTRATOR, METRICS]
