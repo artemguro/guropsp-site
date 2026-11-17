@@ -6,7 +6,15 @@
   <atom:link href="https://guropsp.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <description>GURO PSP articles on iGaming payments: how to improve deposit approval rates, set up routing and cascading, handle decline codes and manage providers.</description>
   <language>en</language>
-  <lastBuildDate>Fri, 06 Nov 2026 08:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Tue, 17 Nov 2026 08:00:00 +0000</lastBuildDate>
+  <item>
+    <title>Payment Alerting: Why Dashboards Alone Miss the Drops</title>
+    <link>https://guropsp.com/blog/payment-alerting-igaming/</link>
+    <guid isPermaLink="true">https://guropsp.com/blog/payment-alerting-igaming/</guid>
+    <pubDate>Tue, 17 Nov 2026 08:00:00 +0000</pubDate>
+    <category>Alerting</category>
+    <description>Why dashboards miss approval rate drops in a casino cashier, which failures only show up in segments, and how smart alerting differs from a line on a chart.</description>
+  </item>
   <item>
     <title>Approval Rate, Conversion or Cost per Deposit: What to Measure</title>
     <link>https://guropsp.com/blog/payment-metrics-approval-rate-vs-conversion/</link>

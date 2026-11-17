@@ -6,7 +6,15 @@
   <atom:link href="https://guropsp.com/ru/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи GURO PSP о платежах в iGaming: как повысить проходимость депозитов, настроить роутинг и каскадинг, работать с кодами отказа и провайдерами.</description>
   <language>ru</language>
-  <lastBuildDate>Fri, 06 Nov 2026 08:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Tue, 17 Nov 2026 08:00:00 +0000</lastBuildDate>
+  <item>
+    <title>Алертинг платежей: почему дашборды не ловят просадки</title>
+    <link>https://guropsp.com/ru/blog/payment-alerting-igaming/</link>
+    <guid isPermaLink="true">https://guropsp.com/ru/blog/payment-alerting-igaming/</guid>
+    <pubDate>Tue, 17 Nov 2026 08:00:00 +0000</pubDate>
+    <category>Алертинг</category>
+    <description>Почему дашборды не замечают просадки проходимости в кассе казино, какие сбои видны только в разрезах и чем умный алертинг отличается от порога на графике.</description>
+  </item>
   <item>
     <title>Approval rate, конверсия или стоимость депозита: что на самом деле мерить</title>
     <link>https://guropsp.com/ru/blog/payment-metrics-approval-rate-vs-conversion/</link>
