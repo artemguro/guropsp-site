@@ -6,7 +6,15 @@
   <atom:link href="https://guropsp.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <description>GURO PSP articles on iGaming payments: how to improve deposit approval rates, set up routing and cascading, handle decline codes and manage providers.</description>
   <language>en</language>
-  <lastBuildDate>Tue, 17 Nov 2026 08:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Fri, 20 Nov 2026 08:00:00 +0000</lastBuildDate>
+  <item>
+    <title>Rolling Reserves and Settlement Delays: What They Cost an Operator</title>
+    <link>https://guropsp.com/blog/rolling-reserve-settlement-delays-igaming/</link>
+    <guid isPermaLink="true">https://guropsp.com/blog/rolling-reserve-settlement-delays-igaming/</guid>
+    <pubDate>Fri, 20 Nov 2026 08:00:00 +0000</pubDate>
+    <category>Settlement</category>
+    <description>What rolling reserves and settlement delays are, why PSPs apply them to casinos, what they really cost an operator and why they matter when choosing a provider.</description>
+  </item>
   <item>
     <title>Payment Alerting: Why Dashboards Alone Miss the Drops</title>
     <link>https://guropsp.com/blog/payment-alerting-igaming/</link>
