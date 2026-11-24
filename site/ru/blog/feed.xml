@@ -6,7 +6,15 @@
   <atom:link href="https://guropsp.com/ru/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Статьи GURO PSP о платежах в iGaming: как повысить проходимость депозитов, настроить роутинг и каскадинг, работать с кодами отказа и провайдерами.</description>
   <language>ru</language>
-  <lastBuildDate>Fri, 20 Nov 2026 08:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Tue, 24 Nov 2026 08:00:00 +0000</lastBuildDate>
+  <item>
+    <title>Платежи казино в Канаде: карты, Interac и риски</title>
+    <link>https://guropsp.com/ru/blog/casino-payments-canada/</link>
+    <guid isPermaLink="true">https://guropsp.com/ru/blog/casino-payments-canada/</guid>
+    <pubDate>Tue, 24 Nov 2026 08:00:00 +0000</pubDate>
+    <category>Рынки</category>
+    <description>Как устроены платежи iGaming в Канаде: провинциальные режимы Онтарио и Альберты, Interac e-Transfer, кредитные карты, FINTRAC и где оператор теряет депозиты.</description>
+  </item>
   <item>
     <title>Роллинг-резервы и задержки выплат: во что они обходятся оператору</title>
     <link>https://guropsp.com/ru/blog/rolling-reserve-settlement-delays-igaming/</link>

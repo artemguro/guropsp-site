@@ -816,4 +816,106 @@ RESERVES = {
  ),
 }
 
-ARTICLES = [GEO, PSP, SMART_ROUTING, APPROVAL, DECLINES, CHECKLIST, ORCHESTRATOR, METRICS, ALERTING, RESERVES]
+CANADA = {
+ 'slug': 'casino-payments-canada', 'service': 'payments-audit', 'date': '2026-11-24', 'updated': '2026-11-24',
+ 'ru': dict(
+  title='Платежи казино в Канаде: карты, Interac и риски',
+  seo_title='Платежи онлайн-казино в Канаде: карты, Interac, риски | GURO PSP',
+  desc='Как устроены платежи iGaming в Канаде: провинциальные режимы Онтарио и Альберты, Interac e-Transfer, кредитные карты, FINTRAC и где оператор теряет депозиты.',
+  tag='Рынки', read='5 мин',
+  lead='Канаду часто воспринимают как один рынок с одной валютой и «карточными» игроками. На деле правила задают провинции, ключевой локальный метод работает не так, как карты, а платёжные партнёры всё внимательнее смотрят, где именно у оператора есть разрешение. Разбираем, что важно знать о кассе для канадского трафика и почему здесь легко потерять и депозиты, и платёжные аккаунты.',
+  body=[
+   ('h2', 'market', 'Не одна страна, а несколько режимов'),
+   ('p', 'Азартные игры в Канаде регулируются на уровне провинций. Поэтому вопрос «можно ли принимать игроков из Канады» не имеет одного ответа — он зависит от провинции игрока, и платёжные провайдеры задают его именно так.'),
+   ('table', ['Провинция', 'Модель', 'Что важно для платежей'], [
+     ['Онтарио', 'Открытый рынок с апреля 2022 года: регулятор AGCO, рынком управляет iGaming Ontario', 'Работа только с регистрацией и договором; стандарты регулятора касаются верификации, средств игроков и выводов'],
+     ['Альберта', 'Открытый рынок с 13 июля 2026 года: регистрация в AGLC и договор с Alberta iGaming Corporation', 'Переходный период для серого рынка закончился 13 октября 2026 года; платёжных провайдеров власти называют одним из рычагов против нелегальных операторов'],
+     ['Большинство других провинций', 'Легальное онлайн-предложение ведут провинциальные лотерейные корпорации', 'Частному оператору важно трезво оценивать, на каком основании он принимает таких игроков и что об этом знает его PSP'],
+   ]),
+   ('p', 'Для кассы это означает, что гео «CA» — слишком грубый сегмент. Доступность методов, требования партнёров и даже то, какие провайдеры вообще готовы работать с трафиком, могут отличаться между провинциями.'),
+   ('h2', 'methods', 'Какие методы реально используют'),
+   ('ul', [
+     '**Interac e-Transfer.** Основной локальный метод: перевод со счёта игрока в его банке. Он подключается через платёжных провайдеров, которые работают с Interac для бизнеса, и ведёт себя иначе, чем карта: другой путь игрока, другие статусы, другие причины незавершённых платежей.',
+     '**Кредитные карты.** Регулируемые рынки Онтарио и Альберты их допускают. Но многие эмитенты относят азартные транзакции по кредитной карте к снятию наличных — с отдельной комиссией и процентами с первого дня. Игрок часто узнаёт об этом из выписки, а оператор — из жалоб и споров.',
+     '**Электронные кошельки, eCash и локальные методы.** Обычно дополняют Interac и карты и закрывают сценарии, где первые два не проходят.',
+   ]),
+   ('p', 'Interac Online — старый метод оплаты через онлайн-банк — сейчас недоступен, поэтому в описаниях касс и у части провайдеров он может встречаться только как устаревшее название. В Канаде путь к депозиту для многих игроков идёт через банковский перевод, а не через ввод карты, и касса, построенная «как для Европы», здесь теряет конверсию.'),
+   ('cta', 'payments-audit'),
+   ('h2', 'risks', 'Где оператор теряет деньги и аккаунты'),
+   ('ul', [
+     '**Несоответствие лицензии и трафика.** Провайдер подключал вас под одну провинцию, а трафик идёт из другой. После окончания переходного периода в Альберте такие расхождения становятся заметнее, и последствия ложатся на платёжные отношения.',
+     '**Скрытые расходы игрока по картам.** Комиссии за cash advance не видны в вашей кассе, но влияют на повторные депозиты, жалобы и чарджбэки.',
+     '**Один провайдер на Interac.** Если он деградирует, у самого популярного метода нет резерва — и это редко видно в общем дашборде.',
+     '**AML-нагрузка.** По определению FINTRAC в число отчитывающихся казино входят и те, кто ведёт онлайн-лотерейные схемы; есть, например, отчёт о выплатах от 10 000 CAD, в том числе суммарно за 24 часа одному лицу. Как именно обязанности распределяются в вашей модели, стоит уточнять с юристом.',
+     '**Медленные выводы.** Канадские регуляторы ждут, что игрок получит деньги в разумный срок и после должной верификации. Затянутая верификация на этапе вывода бьёт и по репутации, и по комплаенсу.',
+   ]),
+   ('p', 'Обходные пути — маскировать гемблинг под другой бизнес, менять MCC или дескриптор, принимать игроков из провинций без основания — нарушают правила платёжных систем и местные требования и обычно заканчиваются закрытием аккаунтов и удержанием средств.'),
+   ('h2', 'symptoms', 'Признаки, что касса для Канады не настроена'),
+   ('ul', [
+     '**Конверсию считают по стране целиком**, без разбивки по провинциям и методам.',
+     '**По Interac не видно, где игроки бросают платёж** — на стороне кассы, банка или провайдера.',
+     '**Растут жалобы на «лишние» списания** по кредитным картам.',
+     '**Никто не может быстро ответить**, под какую провинцию подключён каждый платёжный аккаунт.',
+     '**Выводы задерживаются на верификации**, которую можно было провести раньше.',
+   ]),
+   ('h2', 'parts', 'Из чего на самом деле состоит задача'),
+   ('p', 'Чтобы касса работала на канадском трафике, нужно связать провинциальные требования, договоры с провайдерами, поведение Interac и карт в ваших данных, путь игрока в кассе и требования AML. Ошибка в любом звене — это либо потерянные депозиты, либо риск для платёжных аккаунтов. Мы разбираем это в рамках платёжного аудита со стороны оператора; общий подход к анализу рынков описан в нашей статье про анализ платежей по GEO.'),
+   ('p', 'Мы не продаём PSP и не получаем комиссий от провайдеров — выбор всегда остаётся за вами. Эта статья не является юридической консультацией.'),
+  ],
+  faq=[
+   ('Можно ли в Канаде принимать депозиты кредитными картами?', 'На регулируемых рынках Онтарио и Альберты — да. Но многие эмитенты считают такие операции снятием наличных, поэтому игроку стоит понятно объяснять возможные комиссии его банка, а кассе — предлагать альтернативы вроде Interac.'),
+   ('Достаточно ли подключить Interac через одного провайдера?', 'Для старта — возможно, но это самый важный локальный метод, и без мониторинга и запасного варианта любая деградация провайдера сразу бьёт по депозитам.'),
+  ],
+ ),
+ 'en': dict(
+  title='Casino Payments in Canada: Cards, Interac and the Risks',
+  seo_title='Online Casino Payments in Canada: Cards, Interac, Risks | GURO PSP',
+  desc='How iGaming payments work in Canada: Ontario and Alberta regimes, Interac e-Transfer, credit cards, FINTRAC duties and where operators lose deposits.',
+  tag='Markets', read='5 min',
+  lead='Canada is often treated as one market with one currency and card-paying players. In reality the rules are set by the provinces, the key local method works differently from cards, and payment partners look more and more closely at exactly where an operator is authorised. Here is what matters for a cashier serving Canadian traffic and why it is easy to lose both deposits and payment accounts there.',
+  body=[
+   ('h2', 'market', 'Not one country but several regimes'),
+   ('p', 'Gambling in Canada is regulated at provincial level. So the question “can we accept Canadian players” has no single answer — it depends on the player’s province, and payment providers ask it exactly that way.'),
+   ('table', ['Province', 'Model', 'What matters for payments'], [
+     ['Ontario', 'Open market since April 2022: regulated by the AGCO, run by iGaming Ontario', 'Operating only with registration and an agreement; the regulator’s standards cover verification, player funds and withdrawals'],
+     ['Alberta', 'Open market since 13 July 2026: AGLC registration plus an agreement with the Alberta iGaming Corporation', 'The grey-market transition period ended on 13 October 2026; the government names payment processors as one lever against illegal operators'],
+     ['Most other provinces', 'The legal online offering is run by provincial lottery corporations', 'A private operator needs a sober view of the basis on which it accepts these players and what its PSP knows about it'],
+   ]),
+   ('p', 'For the cashier, this means “CA” is too coarse a segment. Method availability, partner requirements and even which providers will take the traffic at all can differ by province.'),
+   ('h2', 'methods', 'Which methods players actually use'),
+   ('ul', [
+     '**Interac e-Transfer.** The main local method: a transfer from the player’s own bank account. It is connected through payment providers that work with Interac for business, and it behaves differently from a card: a different player journey, different statuses, different reasons for unfinished payments.',
+     '**Credit cards.** The regulated markets in Ontario and Alberta allow them. But many issuers classify gambling transactions on a credit card as a cash advance, with a separate fee and interest from day one. The player often finds out from the statement, and the operator from complaints and disputes.',
+     '**E-wallets, eCash and local methods.** These usually complement Interac and cards and cover the cases where the first two fail.',
+   ]),
+   ('p', 'Interac Online, the older pay-through-online-banking method, is no longer available, so it may still appear in cashier descriptions or provider decks only as an outdated name. In Canada the route to a deposit for many players is a bank transfer rather than typing in a card, and a cashier built “the European way” loses conversion here.'),
+   ('cta', 'payments-audit'),
+   ('h2', 'risks', 'Where operators lose money and accounts'),
+   ('ul', [
+     '**Licence and traffic mismatch.** The provider onboarded you for one province, but traffic comes from another. With Alberta’s transition period over, such gaps become more visible, and the consequences land on your payment relationships.',
+     '**Hidden card costs for players.** Cash advance fees don’t show in your cashier, but they affect repeat deposits, complaints and chargebacks.',
+     '**One provider for Interac.** If it degrades, the most popular method has no fallback — and this is rarely visible on an overall dashboard.',
+     '**AML workload.** FINTRAC’s definition of a reporting casino includes entities that conduct and manage internet lottery schemes; one example is the casino disbursement report from CAD 10,000, including amounts to one person totalled over 24 hours. How these duties are split in your setup is a question for legal counsel.',
+     '**Slow withdrawals.** Canadian regulators expect players to get their money within a reasonable time and after proper verification. Verification dragged out at the withdrawal stage hurts both reputation and compliance.',
+   ]),
+   ('p', 'Workarounds — disguising gambling as another business, changing the MCC or descriptor, accepting players from provinces without a basis — break card scheme rules and local requirements, and usually end with closed accounts and held funds.'),
+   ('h2', 'symptoms', 'Signs your cashier isn’t set up for Canada'),
+   ('ul', [
+     '**Conversion is measured for the country as a whole**, with no split by province and method.',
+     '**For Interac you can’t see where players drop off** — in the cashier, at the bank or at the provider.',
+     '**Complaints about “extra” charges** on credit cards are growing.',
+     '**Nobody can quickly say** which province each payment account was onboarded for.',
+     '**Withdrawals stall on verification** that could have been done earlier.',
+   ]),
+   ('h2', 'parts', 'What the job actually involves'),
+   ('p', 'Making a cashier work for Canadian traffic means connecting provincial requirements, provider contracts, how Interac and cards behave in your own data, the player’s journey through the cashier and AML duties. A mistake in any link means either lost deposits or risk to your payment accounts. We work through this as part of a payments audit, from the operator side; our article on GEO payment analysis describes the general approach to markets.'),
+   ('p', 'We don’t sell PSPs or take commissions from providers — the choice always stays with you. This article is not legal advice.'),
+  ],
+  faq=[
+   ('Can operators accept credit card deposits in Canada?', 'In the regulated Ontario and Alberta markets, yes. But many issuers treat these transactions as cash advances, so players should get a clear note about possible fees from their bank, and the cashier should offer alternatives such as Interac.'),
+   ('Is one provider enough for Interac?', 'Perhaps to start with, but it is the most important local method, and without monitoring and a fallback any provider degradation hits deposits immediately.'),
+  ],
+ ),
+}
+
+ARTICLES = [GEO, PSP, SMART_ROUTING, APPROVAL, DECLINES, CHECKLIST, ORCHESTRATOR, METRICS, ALERTING, RESERVES, CANADA]

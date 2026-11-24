@@ -11,6 +11,7 @@ Pricing: intro call free; consultation EUR 100-150 per hour; initial Tier 1 audi
 - [Routing and cascading](https://guropsp.com/services/routing-cascading/): smart routing, cascades, decline-code handling
 
 ## Articles
+- [Casino Payments in Canada: Cards, Interac and the Risks](https://guropsp.com/blog/casino-payments-canada/): How iGaming payments work in Canada: Ontario and Alberta regimes, Interac e-Transfer, credit cards, FINTRAC duties and where operators lose deposits.
 - [Rolling Reserves and Settlement Delays: What They Cost an Operator](https://guropsp.com/blog/rolling-reserve-settlement-delays-igaming/): What rolling reserves and settlement delays are, why PSPs apply them to casinos, what they really cost an operator and why they matter when choosing a provider.
 - [Payment Alerting: Why Dashboards Alone Miss the Drops](https://guropsp.com/blog/payment-alerting-igaming/): Why dashboards miss approval rate drops in a casino cashier, which failures only show up in segments, and how smart alerting differs from a line on a chart.
 - [Approval Rate, Conversion or Cost per Deposit: What to Measure](https://guropsp.com/blog/payment-metrics-approval-rate-vs-conversion/): Approval rate, player deposit conversion and cost per successful deposit: why payment teams watch the wrong number and how it hides real losses in the cashier.
